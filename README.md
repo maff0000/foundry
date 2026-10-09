@@ -29,6 +29,8 @@ Read in this order:
 6. [Product record standard](standards/product-records.md) for authoritative project records and approval provenance.
 7. [Secure engineering standard](standards/secure-engineering.md) for foundational engineering quality and Security by Design requirements.
 8. [Security by Design skill reference](skills/security-by-design.md) for applicable agent competence, without additional authority or a runtime loading mechanism.
+9. [Project scaffolding standard](standards/project-scaffolding.md) for project-specific initiation records and infrastructure discovery.
+10. [Rogue handoff](delivery/rogue-handoff.md) for authorised initiation and delivery communication.
 
 A fresh session receiving “You are the Project Architect. Align yourself to FOUNDRY” should use this reading to understand responsibilities, authority, established processes, standards, conventions and deferred design. It should independently determine the sensible next activity from context, including when clarification or escalation is necessary. There is no mandatory conversational script. If project context is missing, the Architect may establish whether Matt wants to initiate a new product or review an existing one; ask only when the route is genuinely unclear.
 
@@ -42,11 +44,15 @@ The Architect generates each project's README, Product Vision and Product Backlo
 
 ## Current scope
 
-Only **Stage 1 — Product Initiation & Discovery (FND-S1, v0.3)** is defined. It supports new products and evidence-based initiation reconciliation, reassessment or re-scoping of existing products through iterative discovery, an agreed Product Vision and an initial Product Backlog. Matt must explicitly approve those artifacts, and they must be recorded in the project's GitHub repository. Stage 1 completion does not authorise implementation.
+The framework currently defines **Stage 1 — Product Initiation & Discovery (FND-S1, v0.4)**, project scaffolding and Rogue handoff doctrine. It supports new products and evidence-based initiation reconciliation, reassessment or re-scoping of existing products through iterative discovery, an agreed Product Vision and an initial Product Backlog. Matt must explicitly approve those artifacts, and they must be recorded in the project's GitHub repository. Stage 1 completion does not authorise implementation.
 
-Engineering quality and Security by Design apply from initiation under the secure engineering standard. Stage 1 establishes security understanding and truthful provenance coverage; it does not initiate security implementation or delivery machinery.
+Project-specific PIM construction and infrastructure discovery follow the [project scaffolding standard](standards/project-scaffolding.md). Authorised initiation and later delivery are separated by Architect acceptance and a fresh Rogue context under the [Rogue handoff](delivery/rogue-handoff.md). Stage 1 establishes security understanding and truthful provenance coverage; it does not initiate security implementation or delivery machinery.
 
-Agreed downstream principles are recorded in [DECISIONS.md](DECISIONS.md), but later stages are not designed. Work Order contracts, FORGE cycle mechanics, ANVIL integration, execution budgets, retry policies, audit protocols, PR and merge governance, inter-agent communication, delivery status mechanics, automated enforcement and detailed stop conditions remain deferred. Physical host and directory standards are also undefined and must not be invented. After Stage 1, identify the next applicable process; if none is defined, report the framework gap for architectural resolution.
+The optional [FORGE v2 target reference](references/forge-v2-target.md) records a design target only; it is not mandatory Architect reading and does not claim an operational v2 release.
+
+Engineering quality and Security by Design apply from initiation under the secure engineering standard.
+
+Agreed downstream principles are recorded in [DECISIONS.md](DECISIONS.md), but later stages are not designed. Detailed Work Order contracts, FORGE cycle implementation, ANVIL integration, token/cost/time budgets, retry enforcement, audit protocols, PR/merge lifecycle, communication transport and scheduling, automated enforcement and detailed stop conditions remain deferred. The optional ForgeV2 reference records agreed target behavior without claiming implementation. Infrastructure values remain project-specific and must be verified; no host or absolute path is fixed globally. A conditional Linux `main/` and `worktrees/` topology is documented under the verified root. After Stage 1, identify the next applicable process; if none is defined, report the framework gap for architectural resolution.
 
 ## Continuous improvement
 

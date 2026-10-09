@@ -34,11 +34,19 @@ The [secure engineering standard](standards/secure-engineering.md) establishes f
 
 Rogue and implementers may propose changes but cannot self-expand authority. Independent auditors remain free to assess and challenge findings or decisions without acquiring authority to change scope. The [Security by Design skill reference](skills/security-by-design.md) grants competence, not decision authority; it does not establish runtime skill loading or an audit mechanism.
 
+## Initiation and delivery boundaries
+
+The [project scaffolding standard](standards/project-scaffolding.md) defines the project-root Project Initiation Mandate (PIM) and verified infrastructure records. Values such as repository, host and absolute paths belong to each project and cannot be presumed globally. Matt creates/confirms the project's GitHub repository and development host/root; the Architect authors the project-specific PIM from approved direction and evidence. Rogue may perform only delegated, bounded initiation and cannot approve its own Work Orders or begin Forge delivery without Architect authority.
+
+After Architect acceptance of initiation, delivery starts in a fresh Rogue context built from GitHub-approved records and separately approved WOs. Codex assistance is optional and separately authorised. Each initiation assignment and WO has its own exact GitHub Issue as its bounded status/escalation channel. Every dispatched role's WO identifies resolved log paths, writers/readers, reporting events and escalation. The Architect's ten-minute inspection interval is an operating target, not an assertion of unattended scheduling. Full interface requirements are in the [Rogue handoff](delivery/rogue-handoff.md).
+
+During delivery Rogue alone makes delegated delivery-side Git/GitHub changes. Internal FORGE agents have no Git/GitHub write authority; enforceable tool/credential isolation is a target to verify, not a present technical guarantee. Context is minimised by role, while independent reviewers retain access to the authoritative requirements they must assess. Ambiguity escalates upward; issue comments and draft WOs cannot change approved scope.
+
 ## Durable authority and project boundaries
 
 GitHub is the durable source of truth for agreed decisions and evidence. FOUNDRY holds framework-level doctrine; every product has its own repository for authoritative project records. FOUNDRY does not hold active product backlogs or outstanding product decisions. Framework improvements are deliberate decisions by Matt and CGPT, distinct from individual product evolution.
 
-The Architect generates minimum sufficient project records from actual understanding and evidence under the [product record standard](standards/product-records.md), preserving meaningful uncertainty. A project's own GitHub repository must contain the records required by that standard, including README, Product Vision, Product Backlog and the external software register, before Stage 1 closes. Do not duplicate FOUNDRY governance into project repositories.
+The Architect generates minimum sufficient project records from actual understanding and evidence under the [product record standard](standards/product-records.md), preserving meaningful uncertainty. A project's own GitHub repository must contain the records required by that standard, including README, Product Vision, Product Backlog and the external software register, before Stage 1 closes. Its project-root PIM records verified project initiation context under the project scaffolding standard. Do not duplicate FOUNDRY governance into project repositories.
 
 The project's `PRODUCT-VISION.md` is its authoritative product-direction document. It is living: Matt owns direction, CGPT maintains architectural coherence, and Rogue may read it and propose amendments but cannot unilaterally change the approved vision. Approved revisions must retain their rationale and approval evidence and be traceable through Git history and this decision authority model.
 
@@ -50,7 +58,7 @@ During [Stage 1](stages/01-product-discovery.md), CGPT consolidates and critical
 
 Stage 1 completion does not authorise implementation. Product acceptance and architectural acceptance remain distinct responsibilities. Material architectural ambiguity returns to CGPT; product-direction changes require Matt's authority. Independently authorised work may progress while another area is blocked when dependencies permit.
 
-These are agreed governance responsibilities. They are not claims that GitHub permissions or automated controls technically enforce them. Detailed downstream procedures, including PR and merge governance, remain [deferred](DECISIONS.md).
+These are agreed governance responsibilities. They are not claims that GitHub permissions or automated controls technically enforce them. Detailed downstream procedures remain [deferred](DECISIONS.md). The optional [FORGE v2 target reference](references/forge-v2-target.md) is a design reference, not operational doctrine or mandatory Architect reading.
 
 ## Continuous improvement
 

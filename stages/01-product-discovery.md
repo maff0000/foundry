@@ -2,9 +2,9 @@
 
 **Stage identifier:** FND-S1
 
-**Version:** v0.3
+**Version:** v0.4
 
-Amendment 002 adds foundational engineering/security context and provenance requirements; the existing approval gates remain in force.
+Amendments 002 and 003 add engineering/security and project-initiation requirements; the existing approval gates remain in force.
 
 ## Purpose and operating principles
 
@@ -80,7 +80,13 @@ The Product Backlog contains candidate PBIs describing capabilities or intended 
 
 A PBI is not a Work Order or Sprint. Progressively elaborate the backlog; do not demand detailed requirements for all future PBIs. No definition state grants implementation authority.
 
-The project README orients a fresh agent to product identity, the governing FOUNDRY reference, authoritative product records, current approved state and relevant next authorised activity. Physical host and directory conventions must follow approved FOUNDRY infrastructure standards when established; those standards are not yet defined and must not be invented here.
+The project README orients a fresh agent to product identity, the governing FOUNDRY reference, authoritative product records, current approved state and relevant next authorised activity. Infrastructure values remain project-specific and must be verified. Where applicable, the relative Linux `main/` and `worktrees/` topology under the verified project root follows the [project scaffolding standard](../standards/project-scaffolding.md); no global absolute host or path is prescribed.
+
+## Project initiation record and infrastructure
+
+When product understanding is coherent enough for initiation planning, the Architect authors a project-specific `PROJECT-INITIATION-MANDATE.md` in the project root under the [project scaffolding standard](../standards/project-scaffolding.md). This is a live project record, never a FOUNDRY template. It links the approved product direction and evidence to proposed bounded initiation authority, deliverables, exclusions, verification and escalation. It does not grant Forge delivery permission.
+
+Matt creates/confirms the project's GitHub repository and designated development root; the Architect records the actual verified repository, branch/baseline, host, path and access evidence. No infrastructure value is presumed from another project. Where applicable, the canonical checkout and isolated worktrees use the documented relative Linux topology beneath that verified root. Unknown or unavailable infrastructure remains honestly pending and blocks dependent work; it does not block an independently authorised, safe GitHub-only action. Stage 1 cannot be represented as fully closed while a required project record or closure criterion remains unverified.
 
 ## Critical architectural review
 
@@ -92,7 +98,7 @@ Resolve genuine direction-blocking gaps. Non-blocking uncertainty may remain doc
 
 ## Exit gate
 
-In addition to the required security context and established register with truthful coverage, Stage 1 may close ONLY when all of the following hold:
+In addition to the required security context, established external-code register with truthful coverage, project-root PIM and verified infrastructure/availability status required by the project standards, Stage 1 may close ONLY when all of the following hold:
 
 1. The problem or opportunity is understood.
 2. Intended product value is clear.
@@ -110,7 +116,7 @@ Approval must be explicit and traceable. Do not infer it from silence, file exis
 
 ## Exit behaviour
 
-After approval, preserve the approved baseline, record non-blocking deferred uncertainties and Stage 1 completion, and identify the next applicable FOUNDRY process.
+After approval, preserve the approved baseline, record non-blocking deferred uncertainties and Stage 1 completion, and identify the next applicable FOUNDRY process. Where authorised, Rogue may then perform bounded project initiation under the PIM. Architect acceptance of initiation is a hard boundary; any later WO delivery uses a fresh Rogue context and separately approved WOs under the [Rogue handoff](../delivery/rogue-handoff.md).
 
 **Stage 1 approval does not authorise implementation.** If the next process is undefined, identify that framework gap for architectural resolution. Do not invent delivery procedures. Later stages and the mechanisms in the [decision register](../DECISIONS.md) remain deferred.
 

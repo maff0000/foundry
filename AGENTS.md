@@ -4,7 +4,9 @@ FOUNDRY enables continuity across independent AI sessions. Work from the reposit
 
 ## Required reading
 
-Read [README.md](README.md), this file, [GOVERNANCE.md](GOVERNANCE.md), [DECISIONS.md](DECISIONS.md), [Stage 1](stages/01-product-discovery.md), the [product record standard](standards/product-records.md), the [secure engineering standard](standards/secure-engineering.md), then the [Security by Design skill reference](skills/security-by-design.md).
+Read [README.md](README.md), this file, [GOVERNANCE.md](GOVERNANCE.md), [DECISIONS.md](DECISIONS.md), [Stage 1](stages/01-product-discovery.md), the [product record standard](standards/product-records.md), the [secure engineering standard](standards/secure-engineering.md), then the [Security by Design skill reference](skills/security-by-design.md), [project scaffolding standard](standards/project-scaffolding.md) and [Rogue handoff](delivery/rogue-handoff.md).
+
+The [FORGE v2 target reference](references/forge-v2-target.md) is optional and excluded from required Architect reading.
 
 For work on an individual product, also inspect that project's authoritative records and relevant implementation evidence. FOUNDRY supplies the framework, not the current truth or approval status of every product.
 
@@ -37,6 +39,6 @@ Framework improvements identified through experience or research are proposals u
 
 ## Respect the defined boundary
 
-Only Stage 1 — Product Initiation & Discovery (FND-S1, v0.3) is defined. Do not initiate implementation during Stage 1. After its completion, identify the next applicable process; if undefined, report the gap for architectural resolution. Physical host and directory standards are undefined and must not be invented. Preserve the downstream principles and explicit deferrals in [DECISIONS.md](DECISIONS.md); do not invent missing stages, contracts, automation or tooling integration. Independently authorised work may progress around a blocker only when dependencies permit.
+Stage 1 — Product Initiation & Discovery (FND-S1, v0.4), project scaffolding and Rogue handoff doctrine are defined. Do not initiate implementation during Stage 1. After its completion, identify the next applicable process; if undefined, report the gap for architectural resolution. Discover and verify host, repository and paths per project; use the relative Linux topology only where applicable beneath its verified root. Do not invent infrastructure values. Preserve the downstream principles and explicit deferrals in [DECISIONS.md](DECISIONS.md); do not invent missing stages, contracts, automation or tooling integration. Independently authorised work may progress around a blocker only when dependencies permit. Codex is optional. Rogue performs bounded initiation, then requires Architect acceptance and a fresh context before delivery. The optional ForgeV2 target is not runtime authority or evidence of implementation.
 
 The authority model is governance doctrine, not a claim of verified GitHub permission controls or automated enforcement. Report what has actually been verified. Keep approved changes and their rationale traceable in Git history and the relevant governing records.
