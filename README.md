@@ -12,7 +12,8 @@ It exists to preserve product direction and architectural coherence, support Agi
 
 - **Matt Scott — Product Owner (PO):** owns product vision, objectives, intended value, direction, priorities, scope decisions and final product acceptance.
 - **ChatGPT (CGPT) — Project Architect:** leads discovery, contributes research and expertise, stewards architecture through delivery and determines architectural acceptance.
-- **Rogue — Delivery Controller:** coordinates authorised delivery, maintains progress and evidence, and reports proposals and blockers to CGPT within approved scope.
+- **Orchestrator:** portable role that assigns bounded project initiation and approved WOs to Project Leads, aggregates progress and escalations, and reports to the Architect. **Rogue** is Matt's personal implementation of this role.
+- **Project Lead (PL):** authorised engineering delivery controller for an individual WO; coordinates specialist agents and owns that WO's Git operations within its approved boundary.
 - **FORGE and ANVIL:** Claude Code-based and Codex-based implementation tooling respectively. They do not own product direction or architecture; their detailed integration remains deferred.
 
 See [Governance](GOVERNANCE.md) for authority boundaries.
@@ -30,7 +31,7 @@ Read in this order:
 7. [Secure engineering standard](standards/secure-engineering.md) for foundational engineering quality and Security by Design requirements.
 8. [Security by Design skill reference](skills/security-by-design.md) for applicable agent competence, without additional authority or a runtime loading mechanism.
 9. [Project scaffolding standard](standards/project-scaffolding.md) for project-specific initiation records and infrastructure discovery.
-10. [Rogue handoff](delivery/rogue-handoff.md) for authorised initiation and delivery communication.
+10. [Orchestrator/PL handoff](delivery/rogue-handoff.md) for authorised initiation and delivery communication.
 
 A fresh session receiving “You are the Project Architect. Align yourself to FOUNDRY” should use this reading to understand responsibilities, authority, established processes, standards, conventions and deferred design. It should independently determine the sensible next activity from context, including when clarification or escalation is necessary. There is no mandatory conversational script. If project context is missing, the Architect may establish whether Matt wants to initiate a new product or review an existing one; ask only when the route is genuinely unclear.
 
@@ -44,9 +45,9 @@ The Architect generates each project's README, Product Vision and Product Backlo
 
 ## Current scope
 
-The framework currently defines **Stage 1 — Product Initiation & Discovery (FND-S1, v0.4)**, project scaffolding and Rogue handoff doctrine. It supports new products and evidence-based initiation reconciliation, reassessment or re-scoping of existing products through iterative discovery, an agreed Product Vision and an initial Product Backlog. Matt must explicitly approve those artifacts, and they must be recorded in the project's GitHub repository. Stage 1 completion does not authorise implementation.
+The framework currently defines **Stage 1 — Product Initiation & Discovery (FND-S1, v0.4)**, project scaffolding and Orchestrator/PL handoff doctrine. It supports new products and evidence-based initiation reconciliation, reassessment or re-scoping of existing products through iterative discovery, an agreed Product Vision and an initial Product Backlog. Matt must explicitly approve those artifacts, and they must be recorded in the project's GitHub repository. Stage 1 completion does not authorise implementation.
 
-Project-specific PIM construction and infrastructure discovery follow the [project scaffolding standard](standards/project-scaffolding.md). Authorised initiation and later delivery are separated by Architect acceptance and a fresh Rogue context under the [Rogue handoff](delivery/rogue-handoff.md). Stage 1 establishes security understanding and truthful provenance coverage; it does not initiate security implementation or delivery machinery.
+Project-specific PIM construction and infrastructure discovery follow the [project scaffolding standard](standards/project-scaffolding.md). Authorised initiation and later delivery are separated by Architect acceptance and a fresh PL context under the [Orchestrator/PL handoff](delivery/rogue-handoff.md). Stage 1 establishes security understanding and truthful provenance coverage; it does not initiate security implementation or delivery machinery.
 
 The optional [FORGE v2 target reference](references/forge-v2-target.md) records a design target only; it is not mandatory Architect reading and does not claim an operational v2 release.
 

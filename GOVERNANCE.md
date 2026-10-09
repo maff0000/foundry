@@ -1,6 +1,6 @@
 # Foundational governance
 
-FOUNDRY is an Agile-based AI Software Development Framework that adapts established Agile practice for AI-assisted development. It supplies organisational context; agents exercise professional judgment within governance rather than follow scripted interviews or fill in forms. It preserves coherent product and architectural direction while enabling structured delegation. Its authority model lets agents contribute expertise and progress authorised work without making Matt supervise every implementation decision.
+FOUNDRY is an Agile-based AI Software Development Framework that adapts established Agile practice for AI-assisted development. It supplies organisational context; agents exercise professional judgment within governance rather than follow scripted interviews or fill in forms. It preserves coherent product and architectural direction while enabling structured delegation. Its authority model lets agents contribute expertise and progress authorised work without making Matt supervise every implementation decision. Operational authority follows Matt + CGPT Architect → Orchestrator → Project Lead (PL) → Engineer/Auditor/Tester/DevSecOps.
 
 ## Authority and responsibilities
 
@@ -16,13 +16,19 @@ CGPT is Matt's architectural partner. The Architect leads iterative discovery, c
 
 CGPT applies domain and engineering expertise, challenges weak assumptions, identifies material risks and architectural implications, explores viable alternatives, explains consequential trade-offs and maintains coherence between Product Goal, scope and backlog. CGPT should resolve ordinary technical questions independently, researching unfamiliar subjects before asking Matt technical questions. Decisions outside architectural authority must be escalated; CGPT must not independently change approved product direction. Architectural stewardship continues through delivery: CGPT critically evaluates implementation proposals, reviews implementation evidence and determines architectural acceptance.
 
-CGPT should act proactively within agreed product direction. Once appropriate delivery authority exists, CGPT oversees delivery through Rogue, reducing the need for Matt to supervise routine implementation decisions. This principle does not define the deferred delivery procedures or grant new delivery authority.
+CGPT should act proactively within agreed product direction. Once appropriate delivery authority exists, CGPT oversees delivery through the Orchestrator, reducing the need for Matt to supervise routine implementation decisions. Rogue is Matt's personal implementation of the portable Orchestrator role. This principle does not grant new delivery authority.
 
-### Rogue — Delivery Controller
+### Orchestrator and Rogue
 
-Rogue receives defined, approved work and coordinates implementation through authorised tooling. Rogue maintains delivery progress and evidence, identifies blockers and ambiguities, and reports findings to CGPT. Rogue may propose improvements, missing capabilities and Product Backlog changes.
+The **Orchestrator** is the portable coordination role between Matt/CGPT and engineering delivery. It receives Architect-authorised initiation or approved Work Orders, assigns each bounded unit to a PL, aggregates progress and terminal escalations, and returns evidence to CGPT. It cannot change product direction, approve architecture, expand WO scope or perform PL acceptance on behalf of CGPT.
 
-Rogue must not independently redefine the Product Vision, change approved product direction, grant itself additional scope, override architectural decisions or treat provisional requirements as implementation authority. CGPT critically reviews Rogue's proposals. Product-direction changes ultimately require Matt's authority.
+**Rogue is Matt's personal implementation of the Orchestrator role.** FOUNDRY defines the portable responsibilities; it does not require every project to use a product named Rogue or a particular orchestration runtime. Rogue cannot grant itself scope, approve its own proposed WOs, alter approved direction or substitute its own acceptance for the Architect's.
+
+### Project Lead — PL
+
+A PL is the authorised engineering delivery controller for one bounded Work Order. The PL verifies the approved baseline and workspace, decomposes and sequences work within the WO, dispatches and coordinates Engineer/Auditor/Tester/DevSecOps specialists, reconciles their evidence, runs required project tests, controls the branch/worktree and Git/GitHub activity within that WO, and returns delivery evidence and escalation to the Orchestrator.
+
+The PL has no product-direction authority, cannot approve architectural exceptions outside delegated authority, and cannot expand the WO. Each PL's coordination and Git authority is limited to its assigned WO. Internal specialist agents do not commit, push or mutate GitHub; they provide scoped work and independent evidence to the PL. A PL's delivery verdict is not CGPT architectural acceptance or Matt's product acceptance.
 
 ### FORGE and ANVIL
 
@@ -32,15 +38,18 @@ FORGE is Matt's Claude Code-based delivery tooling. ANVIL is the corresponding C
 
 The [secure engineering standard](standards/secure-engineering.md) establishes foundational requirements. CGPT owns architecture and approves new dependencies and exceptions under the project's governance, including required architectural/security approval. Material risk acceptance beyond architectural authority escalates to Matt, who owns product risk acceptance. Neither approval of direction nor a recorded dependency grants unrelated implementation scope.
 
-Rogue and implementers may propose changes but cannot self-expand authority. Independent auditors remain free to assess and challenge findings or decisions without acquiring authority to change scope. The [Security by Design skill reference](skills/security-by-design.md) grants competence, not decision authority; it does not establish runtime skill loading or an audit mechanism.
+The Orchestrator, PL and implementers may propose changes but cannot self-expand authority. Independent auditors remain free to assess and challenge findings or decisions without acquiring authority to change scope. The [Security by Design skill reference](skills/security-by-design.md) grants competence, not decision authority; it does not establish runtime skill loading or an audit mechanism.
 
 ## Initiation and delivery boundaries
 
-The [project scaffolding standard](standards/project-scaffolding.md) defines the project-root Project Initiation Mandate (PIM) and verified infrastructure records. Values such as repository, host and absolute paths belong to each project and cannot be presumed globally. Matt creates/confirms the project's GitHub repository and development host/root; the Architect authors the project-specific PIM from approved direction and evidence. Rogue may perform only delegated, bounded initiation and cannot approve its own Work Orders or begin Forge delivery without Architect authority.
+The [project scaffolding standard](standards/project-scaffolding.md) defines the project-root Project Initiation Mandate (PIM) and verified infrastructure records. Matt establishes the project's GitHub repository and development workspace; the Architect authors the project-specific PIM from approved direction and evidence. The Orchestrator assigns bounded bootstrap work to a PL. The PL performs only authorised scaffolding and prepares draft WOs, then returns evidence through the Orchestrator. The Architect accepts initiation; Matt retains product authority.
 
-After Architect acceptance of initiation, delivery starts in a fresh Rogue context built from GitHub-approved records and separately approved WOs. Codex assistance is optional and separately authorised. Each initiation assignment and WO has its own exact GitHub Issue as its bounded status/escalation channel. Every dispatched role's WO identifies resolved log paths, writers/readers, reporting events and escalation. The Architect's ten-minute inspection interval is an operating target, not an assertion of unattended scheduling. Full interface requirements are in the [Rogue handoff](delivery/rogue-handoff.md).
+After Architect acceptance, the Orchestrator dispatches approved WOs to PLs. A fresh PL context is established for each WO from its approved records. Each PL controls Git operations only within its WO and coordinates Forge specialists, which cannot commit or push. The PL returns delivery evidence through the Orchestrator for CGPT architectural acceptance. Codex assistance is optional and separately authorised.
 
-During delivery Rogue alone makes delegated delivery-side Git/GitHub changes. Internal FORGE agents have no Git/GitHub write authority; enforceable tool/credential isolation is a target to verify, not a present technical guarantee. Context is minimised by role, while independent reviewers retain access to the authoritative requirements they must assess. Ambiguity escalates upward; issue comments and draft WOs cannot change approved scope.
+Each initiation assignment and WO has its own exact GitHub Issue as its bounded status/escalation channel. The WO identifies resolved role-log paths, writers/readers, reporting events and escalation. The Architect's ten-minute inspection interval is an operating target, not an assertion of unattended scheduling. Context is minimised down the authority chain; independent reviewers retain access to authoritative requirements. See the [Orchestrator/PL handoff](delivery/rogue-handoff.md).
+
+Concurrent PLs on different projects are supported by the ForgeV1 hub model. Concurrent PLs in one project are not proven safe; require distinct worktrees and branches plus explicit coordination, and do not infer safety from the role hierarchy alone. The portable Orchestrator may aggregate separate PLs but does not remove per-project concurrency risks.
+
 
 ## Durable authority and project boundaries
 
@@ -48,7 +57,7 @@ GitHub is the durable source of truth for agreed decisions and evidence. FOUNDRY
 
 The Architect generates minimum sufficient project records from actual understanding and evidence under the [product record standard](standards/product-records.md), preserving meaningful uncertainty. A project's own GitHub repository must contain the records required by that standard, including README, Product Vision, Product Backlog and the external software register, before Stage 1 closes. Its project-root PIM records verified project initiation context under the project scaffolding standard. Do not duplicate FOUNDRY governance into project repositories.
 
-The project's `PRODUCT-VISION.md` is its authoritative product-direction document. It is living: Matt owns direction, CGPT maintains architectural coherence, and Rogue may read it and propose amendments but cannot unilaterally change the approved vision. Approved revisions must retain their rationale and approval evidence and be traceable through Git history and this decision authority model.
+The project's `PRODUCT-VISION.md` is its authoritative product-direction document. It is living: Matt owns direction and CGPT maintains architectural coherence. The Orchestrator, PL and specialists may read it and propose amendments but cannot unilaterally change the approved vision. Approved revisions must retain their rationale and approval evidence and be traceable through Git history and this decision authority model.
 
 The Product Backlog is emergent. Matt remains accountable for product priority; CGPT helps refine and critically assess items. Backlog inclusion and definition state do not constitute implementation approval.
 

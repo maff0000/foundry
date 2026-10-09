@@ -4,7 +4,7 @@ FOUNDRY enables continuity across independent AI sessions. Work from the reposit
 
 ## Required reading
 
-Read [README.md](README.md), this file, [GOVERNANCE.md](GOVERNANCE.md), [DECISIONS.md](DECISIONS.md), [Stage 1](stages/01-product-discovery.md), the [product record standard](standards/product-records.md), the [secure engineering standard](standards/secure-engineering.md), then the [Security by Design skill reference](skills/security-by-design.md), [project scaffolding standard](standards/project-scaffolding.md) and [Rogue handoff](delivery/rogue-handoff.md).
+Read [README.md](README.md), this file, [GOVERNANCE.md](GOVERNANCE.md), [DECISIONS.md](DECISIONS.md), [Stage 1](stages/01-product-discovery.md), the [product record standard](standards/product-records.md), the [secure engineering standard](standards/secure-engineering.md), then the [Security by Design skill reference](skills/security-by-design.md), [project scaffolding standard](standards/project-scaffolding.md) and [Orchestrator/PL handoff](delivery/rogue-handoff.md).
 
 The [FORGE v2 target reference](references/forge-v2-target.md) is optional and excluded from required Architect reading.
 
@@ -21,8 +21,8 @@ Apply the secure engineering standard during initiation and authorised developme
 ## Scope and authority
 
 - Keep framework changes in FOUNDRY and product-specific records in the product's own repository. Do not add active product backlogs or outstanding product decisions here.
-- Matt owns product direction, scope, priority and final product acceptance. CGPT stewards architecture, critically reviews proposals and determines architectural acceptance. Rogue coordinates only authorised delivery.
-- An implementation agent or tool does not acquire the authority of Matt, CGPT or Rogue simply by reading their responsibilities.
+- Matt owns product direction, scope, priority and final product acceptance. CGPT stewards architecture, critically reviews proposals and determines architectural acceptance. The Orchestrator assigns authorised work to a PL and receives aggregate status; Rogue is Matt's personal Orchestrator implementation. The PL controls engineering delivery for one WO.
+- Authority flows Matt and CGPT Architect → Orchestrator (Rogue implementation) → PL → Engineer/Auditor/Tester/DevSecOps. A role or tool does not gain additional authority by reading its responsibilities.
 - Reading a document does not grant permission to change it. Repository access is not product or architectural approval.
 - A Product Backlog Item (PBI) is a desired capability or value, not a Work Order, Sprint or implementation instruction. DEFINED does not mean implementation-ready; PROVISIONAL and PLACEHOLDER items do not authorise agents to invent requirements.
 - Stage 1 approval establishes product direction and the initial backlog. It does not independently authorise implementation.
@@ -31,7 +31,7 @@ Apply the secure engineering standard during initiation and authorised developme
 
 Distinguish verified evidence, inference, assumptions and unresolved uncertainty. For an existing project, establish current truth before proposing changes; inspection itself does not authorise implementation changes.
 
-Separate approved doctrine from proposed improvements. Do not silently convert a suggestion, a provisional requirement or an unresolved question into an agreed decision. Rogue may propose improvements and backlog additions, but CGPT must critically evaluate them; product-direction changes ultimately require Matt's authority.
+Separate approved doctrine from proposed improvements. Do not silently convert a suggestion, a provisional requirement or an unresolved question into an agreed decision. Orchestrator, PL and specialists may propose improvements and backlog additions, but CGPT must critically evaluate them; product-direction changes ultimately require Matt's authority.
 
 When reporting an ambiguity, identify the affected document or evidence, what is unclear, its impact and any supported alternatives. Return material architectural ambiguity to CGPT and product-direction decisions to Matt with CGPT's analysis. Do not transfer every unfamiliar technical or domain question to Matt: CGPT is expected to investigate and contribute expertise.
 
@@ -39,6 +39,6 @@ Framework improvements identified through experience or research are proposals u
 
 ## Respect the defined boundary
 
-Stage 1 — Product Initiation & Discovery (FND-S1, v0.4), project scaffolding and Rogue handoff doctrine are defined. Do not initiate implementation during Stage 1. After its completion, identify the next applicable process; if undefined, report the gap for architectural resolution. Discover and verify host, repository and paths per project; use the relative Linux topology only where applicable beneath its verified root. Do not invent infrastructure values. Preserve the downstream principles and explicit deferrals in [DECISIONS.md](DECISIONS.md); do not invent missing stages, contracts, automation or tooling integration. Independently authorised work may progress around a blocker only when dependencies permit. Codex is optional. Rogue performs bounded initiation, then requires Architect acceptance and a fresh context before delivery. The optional ForgeV2 target is not runtime authority or evidence of implementation.
+Stage 1 — Product Initiation & Discovery (FND-S1, v0.4), project scaffolding and Orchestrator/PL handoff doctrine are defined. Do not initiate implementation during Stage 1. After its completion, identify the next applicable process; if undefined, report the gap for architectural resolution. Discover and verify host, repository and paths per project; use the relative Linux topology only where applicable beneath its verified root. Do not invent infrastructure values. Preserve the downstream principles and explicit deferrals in [DECISIONS.md](DECISIONS.md); do not invent missing stages, contracts, automation or tooling integration. Independently authorised work may progress around a blocker only when dependencies permit. Codex is optional. The Orchestrator assigns bounded initiation to a PL; after Architect acceptance, WO delivery starts in a fresh PL context. The optional ForgeV2 target is not runtime authority or evidence of implementation.
 
 The authority model is governance doctrine, not a claim of verified GitHub permission controls or automated enforcement. Report what has actually been verified. Keep approved changes and their rationale traceable in Git history and the relevant governing records.

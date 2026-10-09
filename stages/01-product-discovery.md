@@ -116,7 +116,7 @@ Approval must be explicit and traceable. Do not infer it from silence, file exis
 
 ## Exit behaviour
 
-After approval, preserve the approved baseline, record non-blocking deferred uncertainties and Stage 1 completion, and identify the next applicable FOUNDRY process. Where authorised, Rogue may then perform bounded project initiation under the PIM. Architect acceptance of initiation is a hard boundary; any later WO delivery uses a fresh Rogue context and separately approved WOs under the [Rogue handoff](../delivery/rogue-handoff.md).
+After approval, preserve the approved baseline, record non-blocking deferred uncertainties and Stage 1 completion, and identify the next applicable FOUNDRY process. Where authorised, the Orchestrator assigns bounded project initiation under the PIM to a PL. The PL returns evidence through the Orchestrator for Architect acceptance. Any later WO delivery is separately authorised and assigned to a PL context under the [Orchestrator/PL handoff](../delivery/rogue-handoff.md).
 
 **Stage 1 approval does not authorise implementation.** If the next process is undefined, identify that framework gap for architectural resolution. Do not invent delivery procedures. Later stages and the mechanisms in the [decision register](../DECISIONS.md) remain deferred.
 

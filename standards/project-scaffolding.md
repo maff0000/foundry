@@ -16,7 +16,7 @@ The PIM records, as applicable:
 - Approved product intent, beneficiaries, Product Goal, outcomes, scope, exclusions, constraints, assumptions, unknowns, risks and security expectations, with links to authoritative decisions and evidence.
 - The actual GitHub repository, default branch and verified baseline; actual development host/root and connectivity; verification evidence/status; and applicable workspace conventions. Unavailable or unknown facts remain explicit and block dependent actions.
 - Required project records and bootstrap deliverables, bounded initiation authority, exclusions, stop conditions and the prohibition on Forge delivery before Architect authority.
-- Initiation Issue URL or explicit authority for Rogue to create it as its first action, before substantive scaffolding; reporting and escalation boundaries.
+- Initiation Issue URL or explicit authority for the assigned PL to create it as its first action, before substantive scaffolding; reporting and escalation boundaries.
 - Review evidence and exit/acceptance criteria, including Matt's product decisions and Architect acceptance. No self-approval, inferred approval or automatic merge.
 
 The PIM is a traceable initiation snapshot. Preserve it in GitHub and the verified development copy with identical governed contents. Living product authority remains in the approved Product Vision, Product Backlog, decisions and subsequent approved amendments. PIM contents must be reconstructable from evidence and approved discussion.
@@ -37,8 +37,8 @@ Investigate existing projects before migration or cleanup. This standard authori
 
 ## Bootstrap boundary
 
-After product direction and records are sufficiently understood, CGPT may delegate bounded project initiation to Rogue. Rogue verifies the PIM, repository and environment, performs only explicitly authorised bootstrap work, drafts Work Orders and reports evidence. Rogue cannot approve its own draft Work Orders, change approved product direction or start Forge delivery before Architect approval.
+After product direction and records are sufficiently understood, the Architect authors the PIM and authorises the portable Orchestrator to assign bounded bootstrap work to a PL. Matt establishes the repository and development workspace. The PL verifies the PIM, repository and environment; performs only authorised scaffolding; prepares draft Work Orders; and returns evidence to the Orchestrator. The Orchestrator returns results to the Architect. The Architect accepts initiation; Matt retains product authority. The PL cannot approve its own draft Work Orders or begin Forge delivery before Architect authority.
 
-After Architect acceptance of initiation, a fresh Rogue delivery context is established from GitHub-approved project records and approved Work Orders. Work Order drafting is not dispatch authority. Forge v2 is a target; a baseline import or repository name does not establish an implemented or accepted release. See the [Rogue handoff](../delivery/rogue-handoff.md). Codex may assist only when separately authorised; it is not a mandatory project handoff or authority role.
+After Architect acceptance of initiation, approved WOs are assigned to PLs for fresh, per-WO delivery contexts based on GitHub-approved records. Work Order drafting is not dispatch authority. Forge v2 is a target; a baseline import or repository name does not establish an implemented or accepted release. See the [Orchestrator/PL handoff](../delivery/rogue-handoff.md). Rogue is Matt's personal implementation of the portable Orchestrator role. Codex may assist only when separately authorised.
 
 Application engineering scaffolding and implementation belong to subsequently approved Work Orders. This standard defines no Work Order contract, delivery cycle or automation. The [product record standard](product-records.md) and [secure engineering standard](secure-engineering.md) continue to apply.
