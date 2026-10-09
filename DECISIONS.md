@@ -1,6 +1,6 @@
 # Framework decision register
 
-This register records FOUNDRY-level doctrine agreed in **FOUNDRY-BOOTSTRAP-001**, approved for implementation by Matt Scott, as amended by **FOUNDRY — BOOTSTRAP AMENDMENT 001** (approval dated 2026-10-23). The amendment records Matt/CGPT architectural reassessment and Matt’s explicit approval of Stage 1 v0.2; it does not represent acceptance of this implementation candidate. This register excludes individual product decisions and backlogs. Changes to the framework require deliberate agreement by Matt and CGPT and traceable rationale.
+This register records FOUNDRY-level doctrine agreed in **FOUNDRY-BOOTSTRAP-001**, approved for implementation by Matt Scott, as amended by **FOUNDRY — BOOTSTRAP AMENDMENT 001** (approval dated 2026-10-23). Amendment 001 records Matt/CGPT architectural reassessment and Matt’s explicit approval of Stage 1 v0.2. Engineering & Security Foundation Amendment 002 adds the agreed doctrine below; its implementation candidate remains subject to architectural acceptance. This register excludes individual product decisions and backlogs. Changes to the framework require deliberate agreement by Matt and CGPT and traceable rationale.
 
 ## Agreed decisions
 
@@ -13,7 +13,7 @@ This register records FOUNDRY-level doctrine agreed in **FOUNDRY-BOOTSTRAP-001**
 | FND-005 | CGPT is Project Architect and retains architectural stewardship through delivery, including critical review and architectural acceptance. |
 | FND-006 | Rogue is Delivery Controller and coordinates authorised delivery without granting itself scope or overriding product or architectural decisions. |
 | FND-007 | FORGE and ANVIL are Claude Code-based and Codex-based implementation tooling respectively; detailed integration is deferred. |
-| FND-008 | Stage 1 is Product Initiation & Discovery (FND-S1, v0.2), supporting new products and existing-product initiation reconciliation, reassessment or re-scoping through iterative discovery rather than mandatory Scrum ceremonies or a waterfall phase. |
+| FND-008 | Stage 1 is Product Initiation & Discovery (FND-S1, v0.3), supporting new products and existing-product initiation reconciliation, reassessment or re-scoping through iterative discovery rather than mandatory Scrum ceremonies or a waterfall phase. |
 | FND-009 | The Product Backlog is progressively elaborated through DEFINED, PROVISIONAL and PLACEHOLDER PBIs. These states do not grant implementation authority. |
 | FND-010 | Stage 1 requires CGPT's critical review and Matt's explicit approval of the Product Vision and initial Product Backlog, recorded in the project's GitHub repository. Completion does not authorise implementation. |
 | FND-011 | Rogue may propose improvements and backlog additions. CGPT critically evaluates these proposals; product-direction changes ultimately require Matt's authority. |
@@ -33,6 +33,21 @@ FND-001 and FND-008 are clarified by Amendment 001; their previous wording remai
 | FND-020 | Framework improvements remain proposals until deliberately agreed by Matt and CGPT and preserved through traceable Git history. |
 | FND-021 | Stage 1 approval provenance identifies exact reviewed artifact versions without circular commit-SHA references. Preserve the approved baseline and record completion and non-blocking uncertainties; identify the next applicable process or report the framework gap. |
 
+## Engineering & Security Foundation Amendment 002
+
+Matt and CGPT agreed this doctrine and authorised implementation on the approved base `4a9739211f73e38e0ef8fa681c53a406c6c9ba0d`. FND-008 advances to v0.3 to identify the added Stage 1 requirements; all existing approval gates and downstream principles are preserved. FND-018's project records are supplemented by the external software register, not replaced. The [secure engineering standard](standards/secure-engineering.md) is authoritative for the requirements summarised here.
+
+| ID | Decision |
+| --- | --- |
+| FND-022 | Engineering quality and Security by Design are foundational to AI-first project initiation and authorised development, applied with professional judgment. |
+| FND-023 | Engineering is reuse-first and user interfaces are component-first under the secure engineering standard. |
+| FND-024 | Applications own their code and reusable assets; project isolation and shared-package considerations follow the secure engineering standard. |
+| FND-025 | Third-party software, provenance, approvals and external executable code are controlled under the secure engineering standard. |
+| FND-026 | Each product maintains an authoritative external software register with truthful inventory coverage; SBOM evidence supplements it. |
+| FND-027 | All coding agents inherit applicable foundational security requirements. The Security by Design skill reference describes competence, not authority or runtime skill loading. |
+| FND-028 | Both Stage 1 routes establish security context and the provenance register before closure, without beginning security implementation or weakening approval gates. |
+| FND-029 | Matt owns product risk acceptance; CGPT approves dependencies and exceptions within project governance and escalates risk beyond architectural authority. Proposers and independent auditors gain no scope-changing authority. |
+
 ## Deferred framework design
 
 The following are intentionally undecided mechanisms, not permission to invent defaults:
@@ -47,6 +62,7 @@ The following are intentionally undecided mechanisms, not permission to invent d
 - Inter-agent communication.
 - Delivery status reporting mechanics.
 - Automated enforcement.
+- Security implementation machinery, scanners, SBOM generators, register automation and schema enforcement, runtime skill loading and audit agents.
 - Detailed stop conditions.
 - Physical host and directory standards.
 - Orchestration mechanisms, deployment procedures and CI/CD automation.

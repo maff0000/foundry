@@ -2,7 +2,7 @@
 
 ## Purpose and applicability
 
-This standard defines the minimum authoritative records required for [Stage 1 — Product Initiation & Discovery](../stages/01-product-discovery.md). Each product MUST have its own GitHub repository containing `README.md`, `PRODUCT-VISION.md` and `PRODUCT-BACKLOG.md` before Stage 1 closes.
+This standard defines the minimum authoritative records required for [Stage 1 — Product Initiation & Discovery](../stages/01-product-discovery.md). Each product MUST have its own GitHub repository containing `README.md`, `PRODUCT-VISION.md`, `PRODUCT-BACKLOG.md` and `security/EXTERNAL_CODE_REGISTER.yaml` before Stage 1 closes.
 
 The Architect creates actual records from project understanding, evidence and agreed direction. These requirements define what records communicate, not fill-in forms or a prescribed layout. Do not use blank forms or placeholder-based document templates. Unknown information remains explicitly unknown; never fabricate facts, decisions, constraints, approvals, metrics or baselines to complete a document.
 
@@ -61,6 +61,12 @@ Where justified, include relative priority, dependencies, significant assumption
 PLACEHOLDER is a legitimate PBI definition state, not an instruction to create blank document templates. The backlog is progressively elaborated and emergent. Matt remains accountable for product priority; CGPT helps refine and critically assess items. Rogue may propose changes for CGPT's critical review; product-direction changes require Matt's authority.
 
 A PBI is not a Work Order or Sprint. Backlog inclusion and definition states do not authorise implementation. The agreed downstream relationships remain in [DECISIONS.md](../DECISIONS.md); this standard does not design their mechanisms.
+
+## Security context and provenance
+
+Project records MUST preserve the security understanding established during initiation or reconciliation under the [secure engineering standard](secure-engineering.md#security-context-during-initiation). Integrate material context, constraints, risks and uncertainty into the Product Vision and supporting evidence, and reflect relevant candidate capabilities in the Product Backlog without granting implementation authority. The project README must make the authoritative security records discoverable. Reference evidence rather than duplicating it.
+
+`security/EXTERNAL_CODE_REGISTER.yaml` is the authoritative project-level external software register. Its content, scope, evidence and truthful coverage requirements are defined solely by the [secure engineering standard](secure-engineering.md#external-software-register). Generate it from actual project knowledge; this standard supplies no blank form or fictional inventory. Preserve the coverage assessment considered during Stage 1 review alongside the review evidence so later agents can distinguish what was known from subsequent findings.
 
 ## Approval provenance
 

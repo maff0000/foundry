@@ -6,7 +6,7 @@ FOUNDRY is an Agile-based AI Software Development Framework that adapts establis
 
 ### Matt Scott — Product Owner
 
-Matt owns product purpose, Product Vision, business objectives, intended value and outcomes, Product Goal, product direction, business priorities, material scope decisions, business risk acceptance, final approval of product direction and final product acceptance.
+Matt owns product purpose, Product Vision, business objectives, intended value and outcomes, Product Goal, product direction, business priorities, material scope decisions, business and product risk acceptance, final approval of product direction and final product acceptance.
 
 Matt may know the outcome he wants without detailed domain or technical expertise. He is not expected to independently resolve unfamiliar questions. CGPT supplies investigation, alternatives and analysis so Matt can make informed product decisions.
 
@@ -28,11 +28,17 @@ Rogue must not independently redefine the Product Vision, change approved produc
 
 FORGE is Matt's Claude Code-based delivery tooling. ANVIL is the corresponding Codex-based tooling. Both are implementation mechanisms for bounded work, not owners of product direction or architecture. Detailed integration is deferred.
 
+## Security and engineering authority
+
+The [secure engineering standard](standards/secure-engineering.md) establishes foundational requirements. CGPT owns architecture and approves new dependencies and exceptions under the project's governance, including required architectural/security approval. Material risk acceptance beyond architectural authority escalates to Matt, who owns product risk acceptance. Neither approval of direction nor a recorded dependency grants unrelated implementation scope.
+
+Rogue and implementers may propose changes but cannot self-expand authority. Independent auditors remain free to assess and challenge findings or decisions without acquiring authority to change scope. The [Security by Design skill reference](skills/security-by-design.md) grants competence, not decision authority; it does not establish runtime skill loading or an audit mechanism.
+
 ## Durable authority and project boundaries
 
 GitHub is the durable source of truth for agreed decisions and evidence. FOUNDRY holds framework-level doctrine; every product has its own repository for authoritative project records. FOUNDRY does not hold active product backlogs or outstanding product decisions. Framework improvements are deliberate decisions by Matt and CGPT, distinct from individual product evolution.
 
-The Architect generates minimum sufficient project records from actual understanding and evidence under the [product record standard](standards/product-records.md), preserving meaningful uncertainty. A project's own GitHub repository must contain README, Product Vision and Product Backlog before Stage 1 closes. Do not duplicate FOUNDRY governance into project repositories.
+The Architect generates minimum sufficient project records from actual understanding and evidence under the [product record standard](standards/product-records.md), preserving meaningful uncertainty. A project's own GitHub repository must contain the records required by that standard, including README, Product Vision, Product Backlog and the external software register, before Stage 1 closes. Do not duplicate FOUNDRY governance into project repositories.
 
 The project's `PRODUCT-VISION.md` is its authoritative product-direction document. It is living: Matt owns direction, CGPT maintains architectural coherence, and Rogue may read it and propose amendments but cannot unilaterally change the approved vision. Approved revisions must retain their rationale and approval evidence and be traceable through Git history and this decision authority model.
 

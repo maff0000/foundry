@@ -2,7 +2,9 @@
 
 **Stage identifier:** FND-S1
 
-**Version:** v0.2
+**Version:** v0.3
+
+Amendment 002 adds foundational engineering/security context and provenance requirements; the existing approval gates remain in force.
 
 ## Purpose and operating principles
 
@@ -42,6 +44,12 @@ Distinguish evidence using these meanings:
 
 Determine what should be retained, corrected, reconsidered or retired. Existing documentation is not automatically proof of implementation reality. Inspection does not authorise implementation changes.
 
+## Foundational security context
+
+For both NEW and EXISTING routes, the Architect MUST establish project-relevant security context and constraints according to the [secure engineering standard](../standards/secure-engineering.md#security-context-during-initiation), applying the [Security by Design competence](../skills/security-by-design.md). Preserve that understanding in project records and establish the external software register with truthful coverage before closure. The standard governs new products with no incorporated code and existing products with incomplete inspection; neither invented inventory nor unsupported assurance is acceptable.
+
+This work is proportionate discovery and reconciliation, not security implementation. Material uncertainties remain subject to critical review and the unchanged product-direction approval gates below.
+
 ## Responsibilities
 
 CGPT, the Project Architect, MUST apply relevant domain and engineering expertise, research unfamiliar subjects, challenge weak assumptions, identify material risks, explore alternatives, explain consequential trade-offs, maintain coherence between goal, scope and backlog, distinguish evidence from hypotheses, and escalate decisions outside architectural authority.
@@ -58,7 +66,7 @@ Iterate as learning changes understanding. Discovery activities are not a fixed 
 
 ## Required project records
 
-Every product MUST have its own GitHub repository before Stage 1 closes, containing authoritative `README.md`, `PRODUCT-VISION.md` and `PRODUCT-BACKLOG.md`. The Architect generates these from actual project context, evidence and agreed direction according to the [product record standard](../standards/product-records.md). Do not use blank forms or placeholder-based document templates, fabricate facts to complete records, or duplicate FOUNDRY governance into the project. Unknown information remains explicitly unknown.
+Every product MUST have its own GitHub repository before Stage 1 closes, containing authoritative `README.md`, `PRODUCT-VISION.md`, `PRODUCT-BACKLOG.md` and `security/EXTERNAL_CODE_REGISTER.yaml`. The Architect generates these from actual project context, evidence and agreed direction according to the [product record standard](../standards/product-records.md). Do not use blank forms or placeholder-based document templates, fabricate facts to complete records, or duplicate FOUNDRY governance into the project. Unknown information remains explicitly unknown.
 
 The Product Vision communicates identity, purpose, problem or opportunity, beneficiaries, value proposition, Product Goal, desired outcomes, observable success indicators, scope boundaries, non-goals, material constraints, significant assumptions, supporting evidence, material risks, unresolved questions, and approval status and provenance.
 
@@ -78,11 +86,13 @@ The project README orients a fresh agent to product identity, the governing FOUN
 
 Before acceptance, CGPT MUST critically review Product Goal coherence, intended value, intended beneficiaries, contradictory requirements, unsupported consequential assumptions, unrealistic expectations, material risks, scope conflicts, and Product Vision and Backlog alignment.
 
+The review must also assess the security context and register coverage against the secure engineering standard, with approvals and risk escalation governed by [security and engineering authority](../GOVERNANCE.md#security-and-engineering-authority).
+
 Resolve genuine direction-blocking gaps. Non-blocking uncertainty may remain documented. Record review evidence and the versions reviewed in accordance with the product record standard.
 
 ## Exit gate
 
-Stage 1 may close ONLY when all of the following hold:
+In addition to the required security context and established register with truthful coverage, Stage 1 may close ONLY when all of the following hold:
 
 1. The problem or opportunity is understood.
 2. Intended product value is clear.
