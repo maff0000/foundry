@@ -45,13 +45,15 @@ Scope must be sufficient to identify what may change and what must not change. U
 ### Quality, security and evidence
 
 - Observable, testable acceptance criteria tied to the intended outcome.
-- Required automated tests and expected evidence, including commands or project-specific procedures when known and verified.
-- Functional and real-browser verification where applicable to the changed behavior. Record what must be observed and what evidence is required; a skipped or unavailable check is not a pass.
-- Required independent Auditor review and DevSecOps assessment, their scope, evidence expectations and reporting paths. Each must report a reasoned result; a non-applicable assessment requires an explicit, evidence-based rationale and Architect approval before dispatch.
+- Required automated tests and expected evidence, including commands or project-specific procedures when known and verified. Mechanical tests run by the PL or Engineer do not replace independent Tester assessment.
+- Independent functional and user-behavior verification owned by Tester, including real-browser testing where applicable. Record what must be observed and what evidence is required; a skipped or unavailable check is not a pass.
+- Independent Auditor, Tester and DevSecOps assessments, with scope, evidence expectations and reporting paths. The assurance sequence is Engineer → Auditor → Tester → DevSecOps. Each reviewer returns PASS or FAIL with reason, evidence and the identity of the candidate assessed. An assessment declared inapplicable requires an explicit evidence-based rationale and CGPT approval before dispatch; it must not be silently skipped.
 - Relevant dependency restrictions and approvals, and the product's external-code register/provenance controls under the secure engineering standard. Do not approve new dependencies by implication.
 - Required evidence for acceptance, including test results, review findings, security assessment, changed paths and any unresolved limitations.
 
 Verification must be proportionate to risk while meeting every explicit criterion. A failure, unavailable environment or incomplete required assessment is not a pass and cannot be hidden by aggregate status.
+
+Reviewer FAIL returns findings to Engineer. Engineer may make a bounded correction or escalate through the PL. Any Engineer change invalidates prior reviewer PASS results; the required assurance sequence restarts on the changed candidate. Final acceptance requires PASS from every applicable reviewer against the same unchanged candidate. The WO must identify how an in-loop candidate is distinguished for reviewer evidence; no common ForgeV2 fingerprint mechanism is established. If candidate identity or unchanged state cannot be verified, acceptance is blocked. ForgeV1's mandatory real-browser assurance remains in force; it must not be removed or weakened before an equivalent ForgeV2 Tester capability is proven.
 
 ### Communications and completion
 
@@ -91,7 +93,7 @@ Before dispatching any Engineer or other delivery specialist, the PL MUST verify
 4. The active branch and worktree are confirmed to belong to the correct project and WO, with the authorized boundaries and protected state understood.
 5. The actual required host/workspace is verified and available; no environment value has been presumed or substituted.
 6. Intended outcome, change scope, exclusions, dependencies and prerequisites are sufficiently clear and verified for responsible execution.
-7. Acceptance criteria are observable and testable; required tests, functional/browser verification, independent audit and DevSecOps assessment are defined with evidence expectations.
+7. Acceptance criteria are observable and testable; mechanical tests, independent Tester verification, Auditor review and DevSecOps assessment are defined with evidence expectations and candidate identification.
 8. Applicable architectural, engineering, security, dependency and external-code requirements are identified, with required approvals present.
 9. Exact Issue and per-role log locations, writers/readers, reporting expectations and escalation routes are available and verified.
 10. No unresolved blocker prevents responsible execution, and required specialist execution state can be recorded by the PL.
