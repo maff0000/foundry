@@ -28,7 +28,7 @@ Architect acceptance ends initiation. Later delivery requires separately approve
 
 ## Work Order communication contract
 
-Before dispatch, each approved WO identifies its exact communication and evidence contract:
+Before dispatch, each approved WO meets the mandatory [Work Order contract](../standards/work-order-contract.md), which defines the full authorization content and entry gates. It also identifies its exact communication and evidence contract:
 
 | Information | Requirement |
 | --- | --- |

@@ -1,6 +1,6 @@
 # Framework decision register
 
-This register records FOUNDRY-level doctrine agreed in **FOUNDRY-BOOTSTRAP-001**, approved for implementation by Matt Scott, as amended by **FOUNDRY — BOOTSTRAP AMENDMENT 001** (approval dated 2026-10-23). Amendment 001 records Matt/CGPT architectural reassessment and Matt’s explicit approval of Stage 1 v0.2. Engineering & Security Foundation Amendment 002 adds the agreed doctrine below; its implementation candidate remains subject to architectural acceptance. This register excludes individual product decisions and backlogs. Changes to the framework require deliberate agreement by Matt and CGPT and traceable rationale.
+This register records FOUNDRY-level doctrine agreed in **FOUNDRY-BOOTSTRAP-001**, approved for implementation by Matt Scott, as amended by **FOUNDRY — BOOTSTRAP AMENDMENT 001** (approval dated 2026-10-23). Amendment 001 records Matt/CGPT architectural reassessment and Matt’s explicit approval of Stage 1 v0.2. Engineering & Security Foundation Amendment 002 and Amendment 003 were accepted and merged into `main` before this Amendment 004 candidate. This register excludes individual product decisions and backlogs. Changes to the framework require deliberate agreement by Matt and CGPT and traceable rationale.
 
 ## Agreed decisions
 
@@ -50,7 +50,7 @@ Matt and CGPT agreed this doctrine and authorised implementation on the approved
 
 ## Amendment 003 — initiation, Orchestrator/PL hierarchy and ForgeV2 reference
 
-Architectural Correction 001 preserves the Amendment 003 candidate and corrects the delivery hierarchy based on ForgeV1 evidence. This stacked review candidate is based on Amendment 002 candidate `7fa9e10ee299284770eb07062f94bede495e39ee`; it does not merge or make either amendment effective. The later Matt-approved Project Initiation and Communication Architecture Candidate (2026-10-24) takes precedence over conflicting earlier Amendment 003 draft text. Existing FND decisions remain unless explicitly clarified below.
+Architectural Correction 001 corrected the delivery hierarchy based on ForgeV1 evidence. Amendment 003 originated as a stacked review candidate based on Amendment 002 candidate `7fa9e10ee299284770eb07062f94bede495e39ee`; Matt and CGPT subsequently accepted it and it was merged into `main` at `cc8fccf3ea1a794db0de355bc707890814ecfc1a`. The later Matt-approved Project Initiation and Communication Architecture Candidate (2026-10-24) takes precedence over conflicting earlier Amendment 003 draft text. Existing FND decisions remain unless explicitly clarified below.
 
 | ID | Decision |
 | --- | --- |
@@ -67,13 +67,22 @@ Architectural Correction 001 preserves the Amendment 003 candidate and corrects 
 | FND-039 | Preserve established ForgeV1 PL capabilities and browser assurance. Multiple PLs on different projects follows the documented hub model; concurrent PLs in one project is unproven and requires independent worktrees, branches and explicit coordination if authorised. |
 | FND-040 | FND-006 and FND-011 are clarified: Rogue implements the Orchestrator role, while a PL is the authorised engineering delivery controller for an individual WO. During delivery, the Orchestrator dispatches approved WOs, the PL coordinates specialists and controls WO-scoped Git operations, and the PL returns evidence through the Orchestrator for Architect acceptance. Specialists cannot commit or push. This does not establish safe same-project PL concurrency or change the ForgeV1 operating instructions. |
 
+## Work Order Contract Amendment 004
+
+Amendment 004 establishes minimum Work Order content, approval provenance and pre-dispatch gates. It does not implement ForgeV2 behavior or alter ForgeV1.
+
+| ID | Decision |
+| --- | --- |
+| FND-041 | Each engineering WO is a project-specific, versioned artifact tied to an exact GitHub Issue and one bounded ForgeV2 delivery cycle. One PBI may map to multiple WOs. A PIM and Product Backlog approval do not authorize implementation. Only CGPT approves the exact WO version for engineering delivery within approved product/architectural scope; Matt retains product authority and material product-risk decisions. |
+| FND-042 | Before specialist dispatch, the PL verifies the approved WO, repository/baseline, correct project branch/worktree, scope and exclusions, testable acceptance criteria, applicable engineering/security requirements, communication paths and authority evidence, and absence of a responsible-execution blocker. Failed prerequisites produce BLOCKED with reason/evidence. The PL owns persisted per-specialist execution state under the existing four-execution limit; exhaustion is FAIL and cannot be bypassed by reset or replacement WO. |
+| FND-043 | ForgeV1's existing `PID.md` startup gate remains unchanged. FOUNDRY's PIM and an approved WO are distinct artifacts; neither replaces the ForgeV1 PID. ForgeV2's exact intake representation and runtime gate remain undecided. |
+
 FND-031 supersedes the deferral of any project-specific infrastructure standard only to the extent described: relative topology and discovery rules are defined; actual host/root, absolute paths, and environment-specific requirements remain project decisions. The optional [FORGE v2 target](references/forge-v2-target.md) is not mandatory fresh-Architect reading and does not establish runtime truth.
 
 ## Deferred framework design
 
 The following are intentionally undecided mechanisms, not permission to invent defaults:
 
-- Detailed Work Order contracts and entry gates.
 - FORGE delivery-cycle mechanics.
 - ANVIL integration.
 - Token, cost and time budgets, recovery policy and enforcement (the per-role four-execution target does not define them).

@@ -2,7 +2,7 @@
 
 **Status: OPTIONAL DESIGN TARGET ONLY. Not implemented, not an active release contract, and not required reading for a fresh FOUNDRY Architect.**
 
-The mandatory FOUNDRY interface is the [Orchestrator/PL handoff](../delivery/rogue-handoff.md). The portable Orchestrator role may be implemented personally by Rogue for Matt. FORGE v1 remains operational in [`maff0000/forge`](https://github.com/maff0000/forge). The separate [`maff0000/forgev2`](https://github.com/maff0000/forgev2) repository contains the inherited v1 baseline at `665b32c991caaace95710abd22af6d4c97eefc3b`, with no v2 functional implementation. V1 has not been altered by this documentation. The former `dell-debian` host was unavailable during Matt's house move; no replacement host is presumed.
+The mandatory FOUNDRY interfaces are the [Orchestrator/PL handoff](../delivery/rogue-handoff.md) and [Work Order contract](../standards/work-order-contract.md). The portable Orchestrator role may be implemented personally by Rogue for Matt. FORGE v1 remains operational in [`maff0000/forge`](https://github.com/maff0000/forge). The separate [`maff0000/forgev2`](https://github.com/maff0000/forgev2) repository contains the inherited v1 baseline at `665b32c991caaace95710abd22af6d4c97eefc3b`, with no v2 functional implementation. V1 has not been altered by this documentation. The former `dell-debian` host was unavailable during Matt's house move; no replacement host is presumed.
 
 ## Established ForgeV1 PL capability
 
