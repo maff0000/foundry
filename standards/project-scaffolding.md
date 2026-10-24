@@ -15,6 +15,7 @@ The PIM records, as applicable:
 - Project identity, NEW/EXISTING route, author/date/version and immutable FOUNDRY governing revision.
 - Approved product intent, beneficiaries, Product Goal, outcomes, scope, exclusions, constraints, assumptions, unknowns, risks and security expectations, with links to authoritative decisions and evidence.
 - The actual GitHub repository, default branch and verified baseline; actual development host/root and connectivity; verification evidence/status; and applicable workspace conventions. Unavailable or unknown facts remain explicit and block dependent actions.
+- When ForgeV2 is used, the identifiable engine installation and version, its protected installation boundary, and the intended application environment/workspace. Keep engine identity separate from product identity; record only verified deployment-specific facts.
 - Required project records and bootstrap deliverables, bounded initiation authority, exclusions, stop conditions and the prohibition on Forge delivery before Architect authority.
 - Initiation Issue URL or explicit authority for the assigned PL to create it as its first action, before substantive scaffolding; reporting and escalation boundaries.
 - Review evidence and exit/acceptance criteria, including Matt's product decisions and Architect acceptance. No self-approval, inferred approval or automatic merge.
@@ -32,6 +33,8 @@ Where a Linux workspace is approved and available, use the following relative to
 ```
 
 This topology does not prescribe `/srv`, a host, IP, SSH alias or absolute path. Record the actual verified paths in project records. A deviation may be used when approved and when canonical checkout and isolated worktrees remain distinct. Worktrees alone do not guarantee correct-repository lineage, prevent shared-service collisions or grant Git authority.
+
+Application source, assets, Work Orders, application logs, test artifacts, build outputs, dependencies and runtime data belong to the application's own governed project workspace. When ForgeV2 is installed separately, protect its installation directory from application delivery operations; application roots and worktrees must remain distinct from it. Verify actual boundaries and reject unapproved filesystem or repository overlap. ForgeV2 changes require a separately authorised engine-development or upgrade activity, not an application WO.
 
 Investigate existing projects before migration or cleanup. This standard authorises no automatic relocation, deletion, reset, overwrite or operation on legacy code. If infrastructure is unavailable, report it BLOCKED/PENDING and stop host-dependent work. That does not prevent a separately authorised GitHub-only action whose prerequisites are independently met. Assess which Stage 1 closure requirements depend on the missing infrastructure; do not declare full initiation complete while required records or evidence are unavailable.
 

@@ -77,6 +77,12 @@ Amendment 004 establishes minimum Work Order content, approval provenance and pr
 | FND-042 | Before specialist dispatch, the PL verifies the approved WO, repository/baseline, correct project branch/worktree, scope and exclusions, testable acceptance criteria, applicable engineering/security requirements, communication paths and authority evidence, and absence of a responsible-execution blocker. Failed prerequisites produce BLOCKED with reason/evidence. The PL owns persisted per-specialist execution state under the existing four-execution limit; exhaustion is FAIL and cannot be bypassed by reset or replacement WO. |
 | FND-043 | ForgeV1's existing `PID.md` startup gate remains unchanged. FOUNDRY's PIM and an approved WO are distinct artifacts; neither replaces the ForgeV1 PID. ForgeV2's exact intake representation and runtime gate remain undecided. |
 
+## Delivery Engine and Application Isolation Amendment 005
+
+| ID | Decision |
+| --- | --- |
+| FND-044 | The ForgeV2 engine installation is distinct from each target application's repository and workspace and is protected from application delivery writes. Application worktrees and artifacts belong to their project root. The PIM records verified project environment and, when relevant, engine identity/version; each WO identifies the application repository/root/branch/worktree and verifies engine/application separation before dispatch. Changes to ForgeV2 require separately authorised engine-development or upgrade activity and cannot be mixed into an application WO. Hostnames, paths and repository identities remain deployment-specific, not FOUNDRY globals. |
+
 FND-031 supersedes the deferral of any project-specific infrastructure standard only to the extent described: relative topology and discovery rules are defined; actual host/root, absolute paths, and environment-specific requirements remain project decisions. The optional [FORGE v2 target](references/forge-v2-target.md) is not mandatory fresh-Architect reading and does not establish runtime truth.
 
 ## Deferred framework design

@@ -47,7 +47,7 @@ Updates are concise and event-driven. A ten-minute Architect inspection interval
 
 ## Engineering delivery and Git authority
 
-The Orchestrator dispatches each approved WO to a PL. **One WO is one bounded ForgeV2 delivery cycle.** The PL owns that WO's decomposition, specialist dispatch and coordination, reconciliation, tests, evidence, branch/worktree and Git/GitHub operations, and delivery verdict. It may commit/push only within its WO's authorised repository and branch boundary. It returns delivery evidence and any escalation through the Orchestrator to CGPT for architectural acceptance.
+The Orchestrator dispatches each approved WO to a PL. **One WO is one bounded ForgeV2 delivery cycle.** Before specialist dispatch, the PL verifies the project identity, application worktree and protected engine boundary required by the [Work Order contract](../standards/work-order-contract.md). The PL owns that WO's decomposition, specialist dispatch and coordination, reconciliation, tests, evidence, branch/worktree and Git/GitHub operations, and delivery verdict. It may commit/push only within its WO's authorised repository and branch boundary. It returns delivery evidence and any escalation through the Orchestrator to CGPT for architectural acceptance.
 
 Each internal specialist—Engineer, Auditor, Tester and DevSecOps—cannot commit, push, alter Git refs/history or write GitHub. Engineer may edit only authorised application files in its assigned isolated worktree. Reviewers do not edit authoritative implementation. Tool/credential isolation must demonstrate these boundaries when implemented; this documentation is not technical enforcement.
 

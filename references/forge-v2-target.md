@@ -55,4 +55,19 @@ ForgeV1 documents concurrent PLs on different projects as the hub model, but sta
 
 Preserve V1's existing real-browser verification for applicable `PRODUCT_USABLE`+ changes. The proposed V2 move of verification duties from V1's Auditor to a Tester is an explicit behavioral change: it must preserve the same independent, non-vacuous real-browser interaction/state evidence. It does not replace or alter operational V1.
 
+## Engine and application isolation
+
+The installed ForgeV2 engine is protected from normal application delivery. An application WO targets only the application's approved repository and workspace; it must not place or write application source, worktrees, Work Orders, application logs, tests, builds, dependencies, runtime data or assets inside the engine installation. Any ForgeV2 engine change requires a separately authorised engine-development or upgrade activity and must not be combined with an application WO. Promoting an approved engine release uses a separate controlled upgrade process; that process is not designed here.
+
+The current planned VPS layout is a deployment-specific example:
+
+```text
+/srv/forgev2/      ForgeV2 engine installation only
+/srv/pacman/       PACMAN project root
+  main/
+  worktrees/
+```
+
+These paths describe the stated PACMAN deployment plan, not global FOUNDRY defaults. The PIM and WO must identify the actual verified project environment and boundaries for each deployment. Other applications use their independently governed project roots.
+
 No v2 feature, role file, counter, scheduler, CI, runtime, deployment or tool isolation is implemented here. Design and verify these separately before describing a usable FORGE v2 release.

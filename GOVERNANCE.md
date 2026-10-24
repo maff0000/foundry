@@ -26,7 +26,7 @@ The **Orchestrator** is the portable coordination role between Matt/CGPT and eng
 
 ### Project Lead — PL
 
-A PL is the authorised engineering delivery controller for one bounded Work Order. The PL verifies the approved baseline and workspace, decomposes and sequences work within the WO, dispatches and coordinates Engineer/Auditor/Tester/DevSecOps specialists, reconciles their evidence, runs required project tests, controls the branch/worktree and Git/GitHub activity within that WO, and returns delivery evidence and escalation to the Orchestrator.
+A PL is the authorised engineering delivery controller for one bounded Work Order. The PL verifies the approved baseline and workspace, including target-project identity and separation from a protected ForgeV2 installation where applicable, decomposes and sequences work within the WO, dispatches and coordinates Engineer/Auditor/Tester/DevSecOps specialists, reconciles their evidence, runs required project tests, controls the branch/worktree and Git/GitHub activity within that WO, and returns delivery evidence and escalation to the Orchestrator.
 
 The PL has no product-direction authority, cannot approve architectural exceptions outside delegated authority, and cannot expand the WO. Each PL's coordination and Git authority is limited to its assigned WO. Internal specialist agents do not commit, push or mutate GitHub; they provide scoped work and independent evidence to the PL. A PL's delivery verdict is not CGPT architectural acceptance or Matt's product acceptance.
 

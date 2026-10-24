@@ -26,10 +26,13 @@ An approved WO MUST communicate the following information clearly enough for a P
 
 - Exact GitHub repository identity and the verified starting commit SHA.
 - The authorized branch and worktree boundary, including what repository state must remain untouched.
+- Exact application/project root and authorised worktree, and (when ForgeV2 is used) the identifiable engine installation/version and protected installation boundary.
 - Actual verified development host and workspace/worktree details needed for this WO, with their evidence and availability status.
 - Any repository-specific access, submodule, generated-file or working-tree prerequisites relevant to safe work.
 
 Repository, host, path, IP address and SSH alias are project facts, not FOUNDRY defaults. Record only values actually verified for this project and WO. A host or workspace that is unavailable or ambiguous blocks dependent work; do not substitute a familiar environment by assumption.
+
+Application source, worktrees, Work Orders, application-specific logs, tests, builds, dependencies, runtime data and assets belong to the target application's workspace. They MUST NOT be placed in or write into the ForgeV2 engine installation. The installed engine is protected during application delivery. A Work Order changing ForgeV2 itself requires separate engine-development authority and must not be mixed with an application WO.
 
 ### Delivery boundary
 
@@ -90,13 +93,14 @@ Before dispatching any Engineer or other delivery specialist, the PL MUST verify
 1. The WO has a stable identifier, exact Issue, immutable artifact version and explicit CGPT approval evidence for that version.
 2. Product decisions requiring Matt's authority are recorded; the requested work remains within approved product and architectural scope.
 3. Repository identity and the starting commit are verified against the approved WO.
-4. The active branch and worktree are confirmed to belong to the correct project and WO, with the authorized boundaries and protected state understood.
-5. The actual required host/workspace is verified and available; no environment value has been presumed or substituted.
-6. Intended outcome, change scope, exclusions, dependencies and prerequisites are sufficiently clear and verified for responsible execution.
-7. Acceptance criteria are observable and testable; mechanical tests, independent Tester verification, Auditor review and DevSecOps assessment are defined with evidence expectations and candidate identification.
-8. Applicable architectural, engineering, security, dependency and external-code requirements are identified, with required approvals present.
-9. Exact Issue and per-role log locations, writers/readers, reporting expectations and escalation routes are available and verified.
-10. No unresolved blocker prevents responsible execution, and required specialist execution state can be recorded by the PL.
+4. The target project identity, project root, branch and authorised worktree are verified as belonging to that project and WO.
+5. Where ForgeV2 is used, its installation identity/version and protected boundary are verified; the application workspace and engine installation are distinct, no application write path enters the engine installation, and no unapproved filesystem or repository overlap exists.
+6. The actual required host/workspace is verified and available; no environment value has been presumed or substituted.
+7. Intended outcome, change scope, exclusions, dependencies and prerequisites are sufficiently clear and verified for responsible execution.
+8. Acceptance criteria are observable and testable; mechanical tests, independent Tester verification, Auditor review and DevSecOps assessment are defined with evidence expectations and candidate identification.
+9. Applicable architectural, engineering, security, dependency and external-code requirements are identified, with required approvals present.
+10. Exact Issue and per-role log locations, writers/readers, reporting expectations and escalation routes are available and verified.
+11. No unresolved blocker prevents responsible execution, and required specialist execution state can be recorded by the PL.
 
 If any gate fails, the PL records **BLOCKED**, identifies the failed condition and supporting evidence, and reports through the Orchestrator. The Architect resolves architectural ambiguity; Matt resolves product-authority decisions. Work may resume only after the relevant authority resolves the blocker and the entry conditions are re-verified. A PL cannot waive a gate, infer approval or dispatch around a failure.
 
