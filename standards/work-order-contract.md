@@ -26,13 +26,15 @@ An approved WO MUST communicate the following information clearly enough for a P
 
 - Exact GitHub repository identity and the verified starting commit SHA.
 - The authorized branch and worktree boundary, including what repository state must remain untouched.
-- Exact application/project root and authorised worktree, and (when ForgeV2 is used) the identifiable engine installation/version and protected installation boundary.
-- Actual verified development host and workspace/worktree details needed for this WO, with their evidence and availability status.
+- Exact application/project root, canonical checkout and explicitly authorised worktree parent/path, and (when ForgeV2 is used) the identifiable engine installation/version and protected installation boundary.
+- Actual verified development **execution** host and absolute project path, recorded together as `host:/path`, plus the verified remote execution route when the Orchestrator runs elsewhere. The Orchestrator/control host alone is not an execution target.
 - Any repository-specific access, submodule, generated-file or working-tree prerequisites relevant to safe work.
 
 Repository, host, path, IP address and SSH alias are project facts, not FOUNDRY defaults. Record only values actually verified for this project and WO. A host or workspace that is unavailable or ambiguous blocks dependent work; do not substitute a familiar environment by assumption.
 
 Application source, worktrees, Work Orders, application-specific logs, tests, builds, dependencies, runtime data and assets belong to the target application's workspace. They MUST NOT be placed in or write into the ForgeV2 engine installation. The installed engine is protected during application delivery. A Work Order changing ForgeV2 itself requires separate engine-development authority and must not be mixed with an application WO.
+
+The optional FOUNDRY framework installation is also immutable during application WOs. Neither installation may be selected as a project root, worktree parent, scratch or build location. No location may be inferred from process working directory, a previous assignment, the controller host or a temporary directory. If a remote target is named, prove the remote PL/specialist execution path; do not fall back to doing the work on the control host. On Trinity, the planned protected installation paths are `/srv/forgev2` and (when installed) `/srv/foundry`, subject to post-sign-off host verification.
 
 ### Delivery boundary
 
@@ -93,9 +95,9 @@ Before dispatching any Engineer or other delivery specialist, the PL MUST verify
 1. The WO has a stable identifier, exact Issue, immutable artifact version and explicit CGPT approval evidence for that version.
 2. Product decisions requiring Matt's authority are recorded; the requested work remains within approved product and architectural scope.
 3. Repository identity and the starting commit are verified against the approved WO.
-4. The target project identity, project root, branch and authorised worktree are verified as belonging to that project and WO.
-5. Where ForgeV2 is used, its installation identity/version and protected boundary are verified; the application workspace and engine installation are distinct, no application write path enters the engine installation, and no unapproved filesystem or repository overlap exists.
-6. The actual required host/workspace is verified and available; no environment value has been presumed or substituted.
+4. The target project identity, explicit canonical project root, branch and authorised worktree parent/path are verified as belonging to that project and WO; no implicit path fallback is permitted.
+5. Where ForgeV2 is used, its installation identity/version and protected boundary are verified; the application workspace is distinct from both the engine installation and any FOUNDRY reference installation, and no application write path overlaps either.
+6. The exact development `host:/path` is verified and available, and if different from the Orchestrator host the remote execution route is demonstrated; no environment value has been presumed or substituted.
 7. Intended outcome, change scope, exclusions, dependencies and prerequisites are sufficiently clear and verified for responsible execution.
 8. Acceptance criteria are observable and testable; mechanical tests, independent Tester verification, Auditor review and DevSecOps assessment are defined with evidence expectations and candidate identification.
 9. Applicable architectural, engineering, security, dependency and external-code requirements are identified, with required approvals present.
