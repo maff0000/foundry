@@ -6,9 +6,9 @@ This standard governs discovery-driven infrastructure and project-record bootstr
 
 Matt is Product Owner and provides or confirms the project's GitHub repository, development host and project root. None is a global constant: repository owner/name, remote, host, IP, SSH alias, path, branch and connectivity are discovered project facts. Verify existence, identity, access and current state before use; do not inherit another project's settings by assumption. Record value, evidence and status truthfully.
 
-## Architect Gateway registration for new projects (proposed; capability-gated)
+## Architect Gateway registration for new projects (capability-gated)
 
-**One shared communication service, not one deployment per project.** Where an Architect Gateway has been deployed and verified, a project is **registered with that existing gateway** during initiation. New projects do not acquire a second gateway service, polling timer, message database, Claude subscription or Orchestrator installation by default. The gateway is a transport and operational projection; **GitHub remains the source of truth** and the project's FOUNDRY authority gates do not change. This section is **PROPOSED** in draft FOUNDRY PR #7, and must not be described as adopted or operational before exact-version review and successful integration tests.
+**One shared communication service, not one deployment per project.** Where an Architect Gateway has been deployed and verified, a project is **registered with that existing gateway** during initiation. New projects do not acquire a second gateway service, polling timer, message database, Claude subscription or Orchestrator installation by default. The gateway is a transport and operational projection; **GitHub remains the source of truth** and the project's FOUNDRY authority gates do not change. This FOUNDRY onboarding requirement is adopted as framework procedure once merged. It does **not** mean that a production multi-project gateway has been installed; installation and project routing must be verified independently before claiming operational capability.
 
 **Required project registration facts, once the gateway is real:**
 
