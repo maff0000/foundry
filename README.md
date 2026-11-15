@@ -18,6 +18,10 @@ It exists to preserve product direction and architectural coherence, support Agi
 
 See [Governance](GOVERNANCE.md) for authority boundaries.
 
+**Canonical Rogue role and host bootstrap:** [ROGUE.md](ROGUE.md) defines Matt's Orchestrator operating instructions; [Rogue host bootstrap](delivery/rogue-host-bootstrap.md) describes safe version-pinned host installation and smoke tests. Framework adoption defines procedures but does not create or deploy an Orchestrator service, grant credentials, approve product scope or bypass a ForgeV2 Work Order gate. The applicable adopted governance remains authoritative.
+
+
+
 ## Start here: humans and fresh AI sessions
 
 Read in this order:
@@ -35,6 +39,8 @@ Read in this order:
 11. [Work Order contract](standards/work-order-contract.md) for required delivery authorization content, provenance and entry gates.
 
 A fresh session receiving “You are the Project Architect. Align yourself to FOUNDRY” should use this reading to understand responsibilities, authority, established processes, standards, conventions and deferred design. It should independently determine the sensible next activity from context, including when clarification or escalation is necessary. There is no mandatory conversational script. If project context is missing, the Architect may establish whether Matt wants to initiate a new product or review an existing one; ask only when the route is genuinely unclear.
+
+**Required new-project communication intake for CGPT:** On each new project, the Architect checks that Rogue has performed project commissioning **including a project-specific CGPT ↔ Rogue gateway route and its tested capability**. The Architect independently verifies repo/host/engine/PL permissions, unique Rogue ownership, direct messaging evidence and the difference between manual GitHub exchange and unattended pickup before treating supervision-dependent work as ready. Follow the [Architect intake instruction in AGENTS.md](AGENTS.md#architect-new-project-intake-direct-cgpt-communications) and [Rogue ROGUE.md §A3](ROGUE.md#a3-new-project-commissioning--mandatory-rogue-responsibility-including-cgpt-communications). **A new project registers with one shared Gateway, not an additional service or timer for that project.**
 
 A fresh session should establish which role it is acting in, which project is being discussed, what is approved, and what authority exists for the requested work. Reading FOUNDRY does not itself authorise edits or implementation. Identify material uncertainty rather than filling missing processes with assumptions.
 
