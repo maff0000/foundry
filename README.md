@@ -18,6 +18,10 @@ It exists to preserve product direction and architectural coherence, support Agi
 
 See [Governance](GOVERNANCE.md) for authority boundaries.
 
+**Proposed Rogue role and host bootstrap (not yet adopted):** [ROGUE.md](ROGUE.md) defines the canonical candidate operating instructions for Matt's Orchestrator implementation; [Rogue host bootstrap](delivery/rogue-host-bootstrap.md) describes how an approved version could be installed and smoke-tested on a new server. These are review-stage documents until exact-version Matt/CGPT approval is recorded; they do not create an Orchestrator service, grant credentials or bypass a ForgeV2 Work Order gate. The portable Orchestrator role and hierarchy are governed by the adopted documents above.
+
+
+
 ## Start here: humans and fresh AI sessions
 
 Read in this order:
