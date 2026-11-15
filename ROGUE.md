@@ -79,6 +79,23 @@ Do not synchronize host-local private notes across machines as authoritative sta
 - Follow the FOUNDRY Stage 1 gates. Matt approves **exact versions** of Product Vision/Backlog; CGPT performs the critical review; a PIM or roadmap alone is not a delivery authorisation.
 - When appropriately assigned and prerequisites are met, ask a PL to perform **bounded initiation**, verify its Issue and paths, and return evidence for CGPT acceptance. No software delivery before an approved WO.
 
+### A2. GitHub project onboarding — prerequisite for reliable orchestration
+
+Every project Rogue coordinates **must have a verified GitHub access profile**, not just an Issue comment privilege. This is a repeatable part of each new Rogue host and project bootstrap, with an initial live exercise in `maff0000/architect-gateway`.
+
+**On each new project:**
+1. Confirm the exact `owner/repo`, actual visibility, default branch/main SHA, active Issue/PR, approved work state, and which actor is entitled to do which GitHub operation.
+2. Check the root Rogue session's **own authenticated `gh` identity** and repo-specific access. The CGPT connector's GitHub connection is a *different identity and runtime*; a successful CGPT read never proves that the IONOS root session is authenticated. Do not leak tokens or credential paths.
+3. **Rogue's coordination permission:** repository Metadata read, Contents read, Issues read/write and Pull requests read/write if required for routine reports, approved Issue registration, PR administration and CGPT communication. Rogue must not push source code or approve/merge its own delivery candidate simply because an existing token technically allows it. Use the narrowest existing suitable credential; prefer an independent fine-grained PAT limited to this one repository over account-wide `repo` authorisation.
+4. **ForgeV2 PL's separate code-delivery credential:** `forgev2-pl` needs Git **read/write to the WO's exact repository** to push only permitted `forge/<WO>` branches. A per-repository GitHub SSH deploy key with **Allow write access** is one practical option. Configure it only in the PL identity and the project's authorised checkout; preserve the installed ForgeV2 plugin and its strict remote identity check. No project credentials in specialist home, scratch, prompt, WO or shared Orchestrator memory. If a repo-specific SSH selection method is required, prove compatibility with the plugin's actual `origin` URL gate; do not silently rewrite `origin` to a hostname alias rejected by ForgeV2.
+5. Validate both routes separately: root Rogue can `gh repo view`, read the private Issue, write an authorised TEST_ONLY comment and read it back; PL can read the project Git refs using its own credential and show a non-writing push-capability preflight. A **real test branch push** is permitted only under an appropriate bounded test/WO approval; a dry-run alone is not conclusive proof of branch-write authority.
+6. Check a negative case: the credential granted for this repository should not authenticate a **different private repo** where it has no approved access, using a harmless metadata/read probe (do not disclose that other repo's existence). Record credential **labels, scope, expiry/check date, test outcome**, never secret values. Update private local index and GitHub setup evidence without publishing credentials.
+7. If Issue/PR APIs work but the PL cannot push, report **PARTIAL / BLOCKED: PL_GIT_WRITE**. If the PL can push but Rogue cannot read or comment, report **PARTIAL / BLOCKED: ROGUE_GH**. Do not claim the end-to-end communication or software-delivery lane is complete until each required capability is independently observed.
+
+A human-authored approval and a Rogue comment published under Matt's GitHub login can have the **same GitHub author**. Stable event IDs correlate the exchange but do not independently authenticate Rogue. Never count a Rogue-authored comment as Matt's product acceptance.
+
+**Privilege rule:** root is Matt's chosen Rogue controller identity on IONOS, not automatic permission to own the PL's Git write operations. The PL still owns worktree, commits, specialist ledger, branch push and evidence under its approved WO. Rogue may register Issues and maintain PR metadata within approved scope but does not silently substitute for missing PL Git authority.
+
 ### B. Bounded WO intake and dispatch
 Before dispatch, prove:
 - Matt-approved product direction; CGPT's exact-WO version approval in its GitHub Issue; approved and current source artifacts.
