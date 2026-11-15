@@ -95,6 +95,24 @@ Existing FOUNDRY Issue #2 defines a comprehensive **unapproved** memory standard
 
 **Scaling:** repeat the same narrow onboarding for each new project. Rogue's capabilities vary by project; an existing token for gateway does **not** grant rights to other private repositories, and a new repo should not be added by extending permissions silently. A GitHub App can replace multiple PATs later if credential upkeep becomes genuine overhead, without changing the project's message schema or FOUNDRY authority hierarchy.
 
+## Shared Architect Gateway — onboarding each new project (proposed)
+
+**Rogue's primary authority is `ROGUE.md` section A3: new-project commissioning.** Project communications are an obligatory item in its intake and readiness report. This is **one centrally operated gateway** with project-specific registrations, not a separate Claude process/timer/service installed per project.
+
+**At the start of every project:** confirm its FOUNDRY product/authority route and exact GitHub repo; execution host, PL, root and worktree topology; Rogue API rights and separate PL Git rights; responsible active Rogue; central Gateway capabilities and inbox/return route. Register project ID and allowed message types, store no credentials in project docs, then perform a project-labelled direct CGPT↔Rogue synthetic exchange and link the comments. Test duplicate/restart behavior whenever automatic pickup is in scope. Record the tested mode explicitly:
+
+- `NOT_REGISTERED` — no project route yet
+- `PENDING` — setup or test incomplete
+- `MANUAL_EXCHANGE_VERIFIED` — direct GitHub comments work with both agents actively checking, but no automatic pickup proof
+- `AUTOMATIC_PICKUP_VERIFIED` — central service independently received, validated and replied to CGPT without Matt prompting Rogue; replay/restart checks passed
+- `UNSUPPORTED` or `FAILED` — route doesn't exist or did not pass; do not fake success
+
+**At dispatch:** Rogue compares the project's required communication level to its independently verified capability, alongside the approved WO/host/PL/credential gates. An unimplemented automatic route blocks tasks depending on automatic receipt, **not** unrelated Stage 1 document discovery. Where Matt requires always-on CGPT supervision for a delivery, a manual fallback must be separately disclosed and accepted; it must not silently count as automatic integration.
+
+**At future project onboarding:** register a new route in the already-running gateway and test it; do not launch another Issue #3 timer or give the project its own root service by default. Different project hosts/Rogues stay distinguishable and single-owner dispatch remains mandatory. If only the existing `architect-gateway` Issue #3 pilot is supported, all other projects remain `UNSUPPORTED` until the shared router and project registry are separately implemented and accepted.
+
+Use the proposed [project-scaffolding standard](../standards/project-scaffolding.md#architect-gateway-registration-for-new-projects-proposed-capability-gated) for the full project registration record, and [Gateway Issue #5](https://github.com/maff0000/architect-gateway/issues/5) for the first single-project observer proposal. Project records must link the successful gateway registration and comms evidence. Neither this guide nor Issue #5 is implementation authority by itself.
+
 ## Small, staged acceptance — no extra framework required
 
 **Stage A: source and local boot (requires explicit approved host adoption).**
