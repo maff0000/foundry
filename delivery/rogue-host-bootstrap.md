@@ -1,6 +1,6 @@
 # Rogue — portable host adoption and communication smoke test
 
-**Status: PROPOSED. Companion to the candidate [ROGUE.md](../ROGUE.md).** This is a setup recipe for a Rogue Orchestrator, not a new FOUNDRY policy, Work Order approval or installed service. Record the approved role-file Git commit before copying it to any host.
+**Status: FOUNDRY Rogue host-bootstrap procedure, companion to [ROGUE.md](../ROGUE.md), effective upon approved merge.** This is a setup procedure, not independent Work Order, installation or host-change approval. Record the approved role-file Git commit before copying it to any host.
 **Date:** 2026-11-15. 
 **Sources:** FOUNDRY delivery/rogue-handoff.md, governance and host-scaffolding rules; proposed Issue #2 orchestrator memory model (still unapproved); maff0000/forgev2 plugin/ORCHESTRATOR.md; architect-gateway Issue #3's host inventory as reported by Claude, **not independently verified by CGPT on the host**.
 
@@ -18,7 +18,7 @@ FOUNDRY owns the portable Orchestrator role and cross-project bootstrapping expe
 - Read-only evidence of which, if any, Rogue is already active and which projects/Work Orders it owns. A new Rogue starts in **observer mode** if another currently controls them.
 - A real FOUNDRY-approved project/PIM/WO and verified application host/canonical checkout/worktree parent **only when engineering dispatch is proposed**. These are not needed merely to boot Rogue or do a no-side-effect GitHub read test.
 
-## Suggested IONOS deployment shape (reported by Claude, not yet adopted or installed)
+## IONOS reference deployment shape (pilot installed as reported by Rogue; host not independently inspected by CGPT)
 
 The 2026-11-15 host report suggests a root-controlled Claude Code controller, protected ForgeV2 at a separate immutable location, and Rogue's working home **/srv/rogue**. It reports Claude 2.1.325 for Rogue, a v0.3 ForgeV2 plugin under **/srv/forgev2/src/plugin**, a separate PL Claude 2.1.310, and no active Forge processes. All of these must be rechecked **on the actual target host**; do not blindly treat them as live truth.
 
@@ -95,7 +95,7 @@ Existing FOUNDRY Issue #2 defines a comprehensive **unapproved** memory standard
 
 **Scaling:** repeat the same narrow onboarding for each new project. Rogue's capabilities vary by project; an existing token for gateway does **not** grant rights to other private repositories, and a new repo should not be added by extending permissions silently. A GitHub App can replace multiple PATs later if credential upkeep becomes genuine overhead, without changing the project's message schema or FOUNDRY authority hierarchy.
 
-## Shared Architect Gateway — onboarding each new project (proposed)
+## Shared Architect Gateway — onboarding each new project
 
 **Rogue's primary authority is `ROGUE.md` section A3: new-project commissioning.** Project communications are an obligatory item in its intake and readiness report. This is **one centrally operated gateway** with project-specific registrations, not a separate Claude process/timer/service installed per project.
 
@@ -111,7 +111,7 @@ Existing FOUNDRY Issue #2 defines a comprehensive **unapproved** memory standard
 
 **At future project onboarding:** register a new route in the already-running gateway and test it; do not launch another Issue #3 timer or give the project its own root service by default. Different project hosts/Rogues stay distinguishable and single-owner dispatch remains mandatory. If only the existing `architect-gateway` Issue #3 pilot is supported, all other projects remain `UNSUPPORTED` until the shared router and project registry are separately implemented and accepted.
 
-Use the proposed [project-scaffolding standard](../standards/project-scaffolding.md#architect-gateway-registration-for-new-projects-proposed-capability-gated) for the full project registration record, and [Gateway Issue #5](https://github.com/maff0000/architect-gateway/issues/5) for the first single-project observer proposal. Project records must link the successful gateway registration and comms evidence. Neither this guide nor Issue #5 is implementation authority by itself.
+Use the [project-scaffolding standard](../standards/project-scaffolding.md#architect-gateway-registration-for-new-projects-capability-gated) for the full project registration record, and [Gateway Issue #5](https://github.com/maff0000/architect-gateway/issues/5) for the first single-project observer proposal. Project records must link the successful gateway registration and comms evidence. Neither this guide nor Issue #5 is implementation authority by itself.
 
 ## Small, staged acceptance — no extra framework required
 
@@ -142,6 +142,6 @@ If the original Rogue identity file still exists on another host, inspect/reconc
 
 ## Required gates and change control
 
-This proposed canonical Rogue file is a **framework change**. FOUNDRY Issue #2's pending setup Work Order and this proposed file must be reconciled; both require Matt/CGPT review of an exact version before normative adoption. A repo PR is not deployment approval. Host changes (new /srv/rogue files, ownership or startup automation), new gh authentication, PL dispatch and live deployment each require their own applicable bounded authority. Keep those gates proportionate: one narrowly scoped host-adoption decision may cover reversible installation and a non-destructive smoke test, without re-asking on every read.
+The canonical Rogue role and bootstrap are adopted into FOUNDRY after Matt/CGPT review and merge. FOUNDRY Issue #2's earlier unapproved setup Work Order remains a separate historical proposal to reconcile or close without silently treating its conflicting provisions as adopted. A repo PR is not deployment approval. Host changes (new /srv/rogue files, ownership or startup automation), new gh authentication, PL dispatch and live deployment each require their own applicable bounded authority. Keep those gates proportionate: one narrowly scoped host-adoption decision may cover reversible installation and a non-destructive smoke test, without re-asking on every read.
 
 **Do not update FOUNDRY/ForgeV2 installations on the deployment server as part of adopting this role.** The copy belongs in /srv/rogue; the master role belongs in FOUNDRY; product/event records belong in their own GitHub repositories.
