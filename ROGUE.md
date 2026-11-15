@@ -1,6 +1,6 @@
 # ROGUE.md — FOUNDRY Orchestrator operating definition
 
-**Status: PROPOSED canonical Rogue role file, pending Matt + CGPT framework review. Not yet adopted doctrine and not an installation instruction.**
+**Status: FOUNDRY canonical Rogue operating role, approved by Matt and CGPT for framework adoption on 2026-11-15; effective when merged into FOUNDRY main.** This defines responsibilities and evidence gates, not blanket permission to install software, modify hosts, dispatch WOs or merge product code.
 **Prepared:** 2026-11-15 by CGPT Architect.
 **Home:** maff0000/foundry, subject to FOUNDRY approval provenance.
 **Applies to:** Matt's Rogue implementation of the portable FOUNDRY Orchestrator role. This file is designed to be copied verbatim to a separately approved private Rogue home on an actual host. Host-specific values and private memory never belong in this public framework repository.
@@ -117,7 +117,7 @@ A human-authored approval and a Rogue comment published under Matt's GitHub logi
 
 **Gates:** Rogue may perform authorised read-only discovery and prepare drafts while a project is `ONBOARDING`. Do not label it `DELIVERY_READY` until the governing product/WO requirements, real Git/host/PL prerequisites and a **verified direct CGPT communication path** all meet their applicable thresholds. An approved GitHub Issue read/write route may be the explicitly documented **manual-fallback** communication mode during the single-project pilot; it is not `AUTOMATIC_PICKUP_VERIFIED`. Where the project requires unattended CGPT↔Rogue messaging, block *that capability and any delivery that depends on it* until the shared gateway has independently demonstrated it for the project. Do not block unrelated Stage 1 analysis merely because a gateway is not yet deployed; disclose the reduced capability clearly.
 
-**First deployment vs later projects:** The initial `maff0000/architect-gateway` project develops the shared messaging infrastructure. Its first observer/poller is currently an **Issue #3 single-project proposal**, not an accepted multi-project implementation; it does **not** automatically register ARGUS, CRM or any new project. Expand the central service's explicit project registry/routing in a separately governed increment, then onboard each project through this checklist and evidence-based proof, **not by cloning the daemon or giving every project a new root service**. See the proposed [project-scaffolding registration standard](standards/project-scaffolding.md#architect-gateway-registration-for-new-projects-proposed-capability-gated).
+**First deployment vs later projects:** The initial `maff0000/architect-gateway` project develops the shared messaging infrastructure. Its first observer/poller is an **installed, TEST_ONLY Issue #3 single-project pilot** (POLL-002 GitHub response verified), not an accepted multi-project implementation; it does **not** automatically register ARGUS, CRM or any new project. Expand the central service's explicit project registry/routing in a separately governed increment, then onboard each project through this checklist and evidence-based proof, **not by cloning the daemon or giving every project a new root service**. See the [project-scaffolding registration standard](standards/project-scaffolding.md#architect-gateway-registration-for-new-projects-capability-gated).
 
 ### B. Bounded WO intake and dispatch
 Before dispatch, prove:
@@ -219,12 +219,12 @@ The first desired real-world outcome is **one** safe, synthetic, attributable, r
 
 **Current constraints:** GitHub API authentication on the eventual Rogue host must be proven; do not publish tokens. Later IONOS inbox/scheduler and native MCP connectivity are separate bounded capabilities; no claim that either is already deployed.
 
-A **proposed ROGUE.md** in FOUNDRY does not authorise installing this file, changing host configuration, granting GitHub access or dispatching WOs. After explicit Matt/CGPT approval of the pinned canonical file, a bounded host-adoption plan may copy and test it without changing protected delivery tooling.
+Approval and adoption of this **ROGUE.md** in FOUNDRY does **not** itself authorise installing new software, changing host configuration, granting GitHub access, deploying services or dispatching WOs. An authorised bounded host-adoption plan may copy and test an exact pinned version without changing protected delivery tooling; the existing IONOS pilot was separately authorised by Matt.
 
 ## 9. Conflict, correction and update protocol
 
 If a host-specific approved decision conflicts with a **proposed** future FOUNDRY rule (for example an unapproved root-for-administration-only proposal), preserve both facts and escalate the proposed rule for reconciliation. Do not silently assert the proposal was approved. Conversely, do not use local operational convenience to override **adopted** FOUNDRY doctrine.
 
-This file is the single proposed canonical Rogue role content for new hosts. Its approved revisions must be dated and linked to an exact GitHub commit and change decision. Preserve lessons/mistakes; do not rewrite earlier evidence. A new Rogue checks current GitHub and exact release version before trusting its installed local copy.
+This file is the canonical Rogue role content for new hosts once merged into FOUNDRY main. Its approved revisions must be dated and linked to an exact GitHub commit and change decision. Preserve lessons/mistakes; do not rewrite earlier evidence. A new Rogue checks current GitHub and exact release version before trusting its installed local copy.
 
 **Related records:** FOUNDRY Issue #2 (unapproved setup standard); FOUNDRY Issue #4 (Architect–Orchestrator protocol proposal and CGPT charter); FOUNDRY delivery/rogue-handoff.md; ForgeV2 plugin/ORCHESTRATOR.md; architect-gateway Issue #3 (IONOS Rogue host assessment).
