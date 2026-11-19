@@ -45,7 +45,7 @@ Reference authoritative records rather than repeating their contents. After Stag
 
 Distinguish evidence from hypotheses and preserve meaningful uncertainty. For existing products, use VERIFIED, INFERRED, ASSUMED and UNKNOWN as defined in Stage 1; documentation alone does not prove implementation reality. Success indicators must be grounded in project understanding; unsupported metrics and baselines must not be invented.
 
-The Product Vision is a living authoritative product-direction record. Matt owns direction, CGPT maintains architectural coherence, and Rogue may propose amendments but cannot unilaterally change approved direction. Preserve rationale and governing decision evidence for significant revisions through Git history. Prior approval must not be presented as covering later unapproved changes.
+The Product Vision is a living authoritative product-direction record. Matt owns direction, the Architect maintains architectural coherence, and Rogue may propose amendments but cannot unilaterally change approved direction. Preserve rationale and governing decision evidence for significant revisions through Git history. Prior approval must not be presented as covering later unapproved changes.
 
 ## Product Backlog
 
@@ -64,7 +64,7 @@ Where justified, include relative priority, dependencies, significant assumption
 | PROVISIONAL | Intent understood, but significant uncertainty remains. |
 | PLACEHOLDER | Future capability anticipated; detailed definition is premature. This state does not permit invented requirements. |
 
-PLACEHOLDER is a legitimate PBI definition state, not an instruction to create blank document templates. The backlog is progressively elaborated and emergent. Matt remains accountable for product priority; CGPT helps refine and critically assess items. Rogue may propose changes for CGPT's critical review; product-direction changes require Matt's authority.
+PLACEHOLDER is a legitimate PBI definition state, not an instruction to create blank document templates. The backlog is progressively elaborated and emergent. Matt remains accountable for product priority; the Architect helps refine and critically assess items. Rogue may propose changes for the Architect's critical review; product-direction changes require Matt's authority.
 
 A PBI is not a Work Order or Sprint. Backlog inclusion and definition states do not authorise implementation. The agreed downstream relationships remain in [DECISIONS.md](../DECISIONS.md); this standard does not design their mechanisms.
 
@@ -82,7 +82,7 @@ Record the exact initiation Issue and each WO Issue in project records where app
 
 ## Approval provenance
 
-Approval MUST be explicit, traceable and preserved in the project's GitHub records. Record or durably reference Matt's actual approval decision, who gave it, when it was given, and the exact Product Vision and initial Product Backlog versions it covers. Preserve CGPT's critical review evidence and identify the reviewed versions. A draft, silence, file existence or a completed checklist is not approval.
+Approval MUST be explicit, traceable and preserved in the project's GitHub records. Record or durably reference Matt's actual approval decision, who gave it, when it was given, and the exact Product Vision and initial Product Backlog versions it covers. Preserve the Architect's critical review evidence and identify the reviewed versions. A draft, silence, file existence or a completed checklist is not approval.
 
 Use immutable artifact references so a fresh agent can recover the exact reviewed contents. Avoid circular commit-SHA references: a document must not purport to contain the SHA of the commit that introduces that very content. An approval record can reference an already-existing artifact commit and its file paths, with the approval evidence recorded subsequently. This describes provenance, not a mandatory PR, merge or delivery workflow.
 

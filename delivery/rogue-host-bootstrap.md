@@ -14,7 +14,7 @@ FOUNDRY owns the portable Orchestrator role and cross-project bootstrapping expe
 - An existing, working Claude Code installation and an authorised subscription/login; version and executable path checked on the host.
 - A **private, separate Rogue home**, ordinarily 0700, with router + canonical role file + project-index and working notes; root or non-root identity is a **host-specific Matt-approved choice**.
 - Read-only access to FOUNDRY and relevant project GitHub records, and narrowly authorised Issue commenting for the synthetic first communication test. No credential value in GitHub, scripts, logs or memory.
-- Optional ForgeV2 installed engine: confirm its repo, revision, plugin version and path before use. The engine is **immutable** during Rogue/application work. PL and specialists run with their **own ForgeV2 documented runtime**; Rogue-as-root never becomes PL-as-root by inference.
+- Optional ForgeV2 installed engine: confirm its repo, revision, plugin version and path before use. The engine is **immutable** during Rogue/application work. PL and specialists run with ForgeV2's documented runtime under the PL identity designated for the host. On a development host Matt may designate the same account as Rogue, including root (ROGUE.md section H, FND-047); do not infer that designation from Rogue's own identity.
 - Read-only evidence of which, if any, Rogue is already active and which projects/Work Orders it owns. A new Rogue starts in **observer mode** if another currently controls them.
 - A real FOUNDRY-approved project/PIM/WO and verified application host/canonical checkout/worktree parent **only when engineering dispatch is proposed**. These are not needed merely to boot Rogue or do a no-side-effect GitHub read test.
 
@@ -70,13 +70,13 @@ Existing FOUNDRY Issue #2 defines a comprehensive **unapproved** memory standard
 
 ## Minimal practical security and identity
 
-- Use the existing root Claude subscription on the host (where Matt has chosen it). **Do not copy** the PL's Claude login/SSH keys, GitHub credentials or private ledger to Rogue.
+- Use the existing root Claude subscription on the host (where Matt has chosen it). Where the PL has its own account, **do not copy** its Claude login/SSH keys, GitHub credentials or private ledger to Rogue.
 - For the **private architect-gateway** GitHub communication proof, choose a GitHub credential granted only the required repository and permissions. A fine-grained GitHub PAT with Issues read/write (and necessary repository metadata access) is an option, **entered privately by Matt** using gh authentication. Other project read scopes must be explicitly justified. Verify gh auth status without printing tokens.
 - If a GitHub event is posted under the shared human GitHub identity, a nonce and event ID provide **correlation/deduplication** only. They do not independently certify who authored it; never treat Rogue-authored Issue comments as Matt's personal approval.
 - IONOS firewall management belongs to Matt; do not add another firewall, alter SSH access, open a web endpoint or install a network daemon for a GitHub Issue-only smoke test.
 - Keep secrets out of any public FOUNDRY/ForgeV2/Gateway docs. When a security finding needs private detail, use restricted host-local evidence and a sanitized GitHub summary.
 - Preserve /srv/forgev2 and any other immutable engine/reference installation. **No git fetch, package install, git config changes or chown/chmod experiments inside protected paths** for read-only identity verification.
-- If the root-operated model and a later specialist isolation test conflict, report the exact conflict; do not set FORGE_ALLOW_ROOT=1 or weaken the engine's checks just to achieve a green verdict.
+- If the root-operated model and a later specialist isolation test conflict, report the exact conflict; do not weaken the engine's checks to achieve a green verdict. `FORGE_ALLOW_ROOT=1` is for a designated development host whose PL identity is root, not a way past a failing test.
 
 ## GitHub project onboarding — standard for Rogue and each newly assigned repository
 
@@ -91,6 +91,8 @@ Existing FOUNDRY Issue #2 defines a comprehensive **unapproved** memory standard
 7. **Document on the host, no secrets:** project identifier; Rogue credential label and scope; PL credential label and scope; tested `gh` commands and result; tested PL repo identity/path; initial/current approved SHA; when next verify or rotate; last synthetic correlation ID. Project index remains a pointer, not a second authority. Avoid public posting of network/credential-specific setup details.
 8. **Negative case and revocation:** use a harmless attempted read of a non-authorised project to check accidental overreach; handle a 404/denial without disclosure. Confirm where Matt can revoke the token/deploy key. Do not attempt cross-repository writes.
 
+**Development hosts with one shared account:** where Matt has designated one account for Rogue and the PL (ROGUE.md section H), steps 5–6 reduce to confirming that the account can read the repository and passes the same non-writing push preflight. No deploy key, second login or separate PL account is created.
+
 **Failure classification:** `ROGUE_GH_BLOCKED` = root gh cannot access Issue/PR as authorised; `PL_GIT_BLOCKED` = PL cannot read/push to approved work target; `PROJECT_IDENTITY_BLOCKED` = repo/path mismatch; `AUTHORITY_BLOCKED` = missing exact WO permission. No dummy credentials, global scope switch or bypass to make a test green. Check unrelated active PL sessions first and never overwrite credentials belonging to another project.
 
 **Scaling:** repeat the same narrow onboarding for each new project. Rogue's capabilities vary by project; an existing token for gateway does **not** grant rights to other private repositories, and a new repo should not be added by extending permissions silently. A GitHub App can replace multiple PATs later if credential upkeep becomes genuine overhead, without changing the project's message schema or FOUNDRY authority hierarchy.
@@ -99,15 +101,15 @@ Existing FOUNDRY Issue #2 defines a comprehensive **unapproved** memory standard
 
 **Rogue's primary authority is `ROGUE.md` section A3: new-project commissioning.** Project communications are an obligatory item in its intake and readiness report. This is **one centrally operated gateway** with project-specific registrations, not a separate Claude process/timer/service installed per project.
 
-**At the start of every project:** confirm its FOUNDRY product/authority route and exact GitHub repo; execution host, PL, root and worktree topology; Rogue API rights and separate PL Git rights; responsible active Rogue; central Gateway capabilities and inbox/return route. Register project ID and allowed message types, store no credentials in project docs, then perform a project-labelled direct CGPT↔Rogue synthetic exchange and link the comments. Test duplicate/restart behavior whenever automatic pickup is in scope. Record the tested mode explicitly:
+**At the start of every project:** confirm its FOUNDRY product/authority route and exact GitHub repo; execution host, PL, root and worktree topology; Rogue API rights and separate PL Git rights; responsible active Rogue; central Gateway capabilities and inbox/return route. Register project ID and allowed message types, store no credentials in project docs, then perform a project-labelled direct Architect↔Rogue synthetic exchange and link the comments. Test duplicate/restart behavior whenever automatic pickup is in scope. Record the tested mode explicitly:
 
 - `NOT_REGISTERED` — no project route yet
 - `PENDING` — setup or test incomplete
 - `MANUAL_EXCHANGE_VERIFIED` — direct GitHub comments work with both agents actively checking, but no automatic pickup proof
-- `AUTOMATIC_PICKUP_VERIFIED` — central service independently received, validated and replied to CGPT without Matt prompting Rogue; replay/restart checks passed
+- `AUTOMATIC_PICKUP_VERIFIED` — central service independently received, validated and replied to the Architect without Matt prompting Rogue; replay/restart checks passed
 - `UNSUPPORTED` or `FAILED` — route doesn't exist or did not pass; do not fake success
 
-**At dispatch:** Rogue compares the project's required communication level to its independently verified capability, alongside the approved WO/host/PL/credential gates. An unimplemented automatic route blocks tasks depending on automatic receipt, **not** unrelated Stage 1 document discovery. Where Matt requires always-on CGPT supervision for a delivery, a manual fallback must be separately disclosed and accepted; it must not silently count as automatic integration.
+**At dispatch:** Rogue compares the project's required communication level to its independently verified capability, alongside the approved WO/host/PL/credential gates. An unimplemented automatic route blocks tasks depending on automatic receipt, **not** unrelated Stage 1 document discovery. Where Matt requires always-on Architect supervision for a delivery, a manual fallback must be separately disclosed and accepted; it must not silently count as automatic integration.
 
 **At future project onboarding:** register a new route in the already-running gateway and test it; do not launch another Issue #3 timer or give the project its own root service by default. Different project hosts/Rogues stay distinguishable and single-owner dispatch remains mandatory. If only the existing `architect-gateway` Issue #3 pilot is supported, all other projects remain `UNSUPPORTED` until the shared router and project registry are separately implemented and accepted.
 
@@ -124,24 +126,24 @@ Use the [project-scaffolding standard](../standards/project-scaffolding.md#archi
 **Stage B: GitHub-only synthetic two-way test (separate narrow communication authority).**
 1. Confirm gh can access only the intended private test Issue(s), without revealing credentials.
 2. Rogue posts one clearly labelled **TEST / NO EXECUTION** Issue comment to architect-gateway Issue #3 with unique event ID, UTC time, source role, exact benign evidence link/commit and desired reply. GitHub identity is shared; never interpret this as Matt approval.
-3. CGPT independently opens Issue #3 through its connected GitHub integration, verifies event and evidence, writes a correlated *clarification/ack* (not authorisation).
+3. The Architect independently opens Issue #3 through its connected GitHub integration, verifies event and evidence, writes a correlated *clarification/ack* (not authorisation).
 4. Rogue fetches the same Issue comments and returns an answer containing the original correlation ID. Try a duplicate read/restart and confirm Rogue does not re-execute or issue a duplicate side effect.
-5. If gh or CGPT connection fails, report **BLOCKED/NOT DELIVERED**, preserve event identity and pending requirement, and avoid optimistic completion.
+5. If gh or the Architect's connection fails, report **BLOCKED/NOT DELIVERED**, preserve event identity and pending requirement, and avoid optimistic completion.
 
 **Stage C: later authorised ForgeV2 PL handoff (NOT part of initial smoke test).**
 - After exact-WO approval, verified execution HOST/ROOT/WORKTREES, suitable PL login/rights, and current engine gate acceptance, Rogue starts one fresh PL via the **installed** plugin/ORCHESTRATOR.md command. Inspect JSON outcome and independent evidence; never run a WO directly from the root Rogue process. The plugin cannot magically execute on a remote host because a WO states a remote HOST.
-- The permitted output is an assessed candidate and next CGPT gate, not an unreviewed merge.
+- The permitted output is an assessed candidate and next Architect gate, not an unreviewed merge.
 
-**Stage D: future IONOS durable inbox / MCP adapter (NOT part of initial smoke test).** Govern separately in architect-gateway; do not mistake a working GitHub exchange for a running MCP connection, automatic CGPT wake-up, or unattended architectural supervision.
+**Stage D: future IONOS durable inbox / MCP adapter (NOT part of initial smoke test).** Govern separately in architect-gateway; do not mistake a working GitHub exchange for a running MCP connection, automatic Architect wake-up, or unattended architectural supervision.
 
 ## Practical outcome and failure semantics
 
-A successful setup can say **ROGUE ROLE BOOT VERIFIED** only when the role/router are actually loaded from pinned files and a project GitHub status is independently checked. **CGPT↔ROGUE ROUND-TRIP VERIFIED** requires the test message, independent CGPT read, correlated response and Rogue readback, all with real GitHub evidence. A proposal, a Claude scratchpad or a local success assertion is not that evidence.
+A successful setup can say **ROGUE ROLE BOOT VERIFIED** only when the role/router are actually loaded from pinned files and a project GitHub status is independently checked. **ARCHITECT↔ROGUE ROUND-TRIP VERIFIED** requires the test message, independent Architect read, correlated response and Rogue readback, all with real GitHub evidence. A proposal, a Claude scratchpad or a local success assertion is not that evidence.
 
 If the original Rogue identity file still exists on another host, inspect/reconcile it before replacing an active Orchestrator. The current IONOS inventory report found **no local ROGUE.md** and proposed an unattached scratchpad role draft, but CGPT has not accessed that scratchpad. Preserve it for comparison if available; do not represent it as reviewed or identical to this role.
 
 ## Required gates and change control
 
-The canonical Rogue role and bootstrap are adopted into FOUNDRY after Matt/CGPT review and merge. FOUNDRY Issue #2's earlier unapproved setup Work Order remains a separate historical proposal to reconcile or close without silently treating its conflicting provisions as adopted. A repo PR is not deployment approval. Host changes (new /srv/rogue files, ownership or startup automation), new gh authentication, PL dispatch and live deployment each require their own applicable bounded authority. Keep those gates proportionate: one narrowly scoped host-adoption decision may cover reversible installation and a non-destructive smoke test, without re-asking on every read.
+The canonical Rogue role and bootstrap are adopted into FOUNDRY after Matt/Architect review and merge. FOUNDRY Issue #2's earlier unapproved setup Work Order remains a separate historical proposal to reconcile or close without silently treating its conflicting provisions as adopted. A repo PR is not deployment approval. Host changes (new /srv/rogue files, ownership or startup automation), new gh authentication, PL dispatch and live deployment each require their own applicable bounded authority. Keep those gates proportionate: one narrowly scoped host-adoption decision may cover reversible installation and a non-destructive smoke test, without re-asking on every read.
 
 **Do not update FOUNDRY/ForgeV2 installations on the deployment server as part of adopting this role.** The copy belongs in /srv/rogue; the master role belongs in FOUNDRY; product/event records belong in their own GitHub repositories.

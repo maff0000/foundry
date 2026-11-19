@@ -52,7 +52,7 @@ This work is proportionate discovery and reconciliation, not security implementa
 
 ## Responsibilities
 
-CGPT, the Project Architect, MUST apply relevant domain and engineering expertise, research unfamiliar subjects, challenge weak assumptions, identify material risks, explore alternatives, explain consequential trade-offs, maintain coherence between goal, scope and backlog, distinguish evidence from hypotheses, and escalate decisions outside architectural authority.
+The Project Architect MUST apply relevant domain and engineering expertise, research unfamiliar subjects, challenge weak assumptions, identify material risks, explore alternatives, explain consequential trade-offs, maintain coherence between goal, scope and backlog, distinguish evidence from hypotheses, and escalate decisions outside architectural authority.
 
 The Architect SHOULD resolve ordinary technical questions without involving Matt. Research independently before asking the PO technical questions; ask Matt questions requiring product authority. The Architect MUST NOT independently change approved product direction.
 
@@ -90,7 +90,7 @@ Matt creates/confirms the project's GitHub repository and designated development
 
 ## Critical architectural review
 
-Before acceptance, CGPT MUST critically review Product Goal coherence, intended value, intended beneficiaries, contradictory requirements, unsupported consequential assumptions, unrealistic expectations, material risks, scope conflicts, and Product Vision and Backlog alignment.
+Before acceptance, the Architect MUST critically review Product Goal coherence, intended value, intended beneficiaries, contradictory requirements, unsupported consequential assumptions, unrealistic expectations, material risks, scope conflicts, and Product Vision and Backlog alignment.
 
 The review must also assess the security context and register coverage against the secure engineering standard, with approvals and risk escalation governed by [security and engineering authority](../GOVERNANCE.md#security-and-engineering-authority).
 
@@ -122,4 +122,4 @@ After approval, preserve the approved baseline, record non-blocking deferred unc
 
 ## Continuous improvement
 
-The Architect may identify improvements to FOUNDRY during initiation. These findings are proposals, not automatic policy changes. Framework changes require deliberate Matt/CGPT agreement and traceable Git history, as established in [Governance](../GOVERNANCE.md).
+The Architect may identify improvements to FOUNDRY during initiation. These findings are proposals, not automatic policy changes. Framework changes require deliberate Matt/Architect agreement and traceable Git history, as established in [Governance](../GOVERNANCE.md).

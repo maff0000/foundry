@@ -5,7 +5,7 @@
 FOUNDRY defines a portable **Orchestrator** role. **Rogue is Matt's personal implementation of that role**, not a universal runtime or mandatory product component. The authority hierarchy is:
 
 ```text
-Matt + CGPT Architect
+Matt + Architect
         ↓
 Orchestrator (Rogue implementation)
         ↓
@@ -14,7 +14,7 @@ Project Lead (PL), one bounded Work Order
 Engineer / Auditor / Tester / DevSecOps
 ```
 
-Matt owns product direction, priorities, material risk acceptance and product acceptance. CGPT owns architecture and architectural acceptance. The Orchestrator assigns bounded work and aggregates progress/escalation, but cannot expand approved scope or replace either authority. A PL controls engineering delivery for its assigned WO, not product or architectural direction. Specialist agents exercise only their assigned role authority. Codex is optional, separately authorised assistance; it is not a mandatory handoff role.
+Matt owns product direction, priorities, material risk acceptance and product acceptance. The Architect owns architecture and architectural acceptance. The Orchestrator assigns bounded work and aggregates progress/escalation, but cannot expand approved scope or replace either authority. A PL controls engineering delivery for its assigned WO, not product or architectural direction. Specialist agents exercise only their assigned role authority. Codex is optional, separately authorised assistance; it is not a mandatory handoff role.
 
 ForgeV1 already implements a capable PL as the driving Claude Code session. FOUNDRY does not duplicate its PL operating instructions; this document records only the portable authority boundary. The [optional ForgeV2 target](../references/forge-v2-target.md) links to the source doctrine and distinguishes retained V1 behavior from proposed changes.
 
@@ -22,7 +22,7 @@ ForgeV1 already implements a capable PL as the driving Claude Code session. FOUN
 
 Once product direction is sufficiently coherent, the Architect authors a project-root PIM and provides an authorised initiation assignment to the Orchestrator. Matt establishes the project GitHub repository and development workspace. The Orchestrator assigns the bounded bootstrap work to a PL, identifying the PIM, exact repository/baseline, verified infrastructure where available, immutable FOUNDRY revision, Issue instructions, scope, exclusions and escalation boundaries.
 
-Each initiation assignment has an exact GitHub Issue. If none exists, the Orchestrator may authorise the assigned PL to create it as its first action and return the verified URL before substantive scaffolding. The PL verifies prerequisites, performs only authorised scaffolding and prepares draft WOs; it cannot approve its own drafts, change Matt-approved direction or start Forge delivery before Architect authority. It returns progress/evidence through the Issue and Orchestrator. The Orchestrator returns the candidate to CGPT; CGPT reviews and accepts initiation, and Matt makes required product decisions.
+Each initiation assignment has an exact GitHub Issue. If none exists, the Orchestrator may authorise the assigned PL to create it as its first action and return the verified URL before substantive scaffolding. The PL verifies prerequisites, performs only authorised scaffolding and prepares draft WOs; it cannot approve its own drafts, change Matt-approved direction or start Forge delivery before Architect authority. It returns progress/evidence through the Issue and Orchestrator. The Orchestrator returns the candidate to the Architect; the Architect reviews and accepts initiation, and Matt makes required product decisions.
 
 Architect acceptance ends initiation. Later delivery requires separately approved WOs and fresh PL contexts reconstructed from GitHub-approved records and the relevant WO. Discovery and bootstrap conversation is not implicit delivery authority.
 
@@ -38,7 +38,7 @@ Before dispatch, each approved WO meets the mandatory [Work Order contract](../s
 | Role logs | Resolved WO-specific `.log` paths for each participating role. |
 | Writers/readers | Which role writes each artifact and who may read it. PL publishes the WO's Git/GitHub delivery record; internal Forge agents do not commit, push or mutate GitHub. |
 | Reporting | Concise, event-driven start, state transition, PASS/FAIL with reasons/evidence, blocker, escalation and completion. Link targeted evidence instead of pasting full logs repeatedly. |
-| Escalation | Specialist findings return to the PL; the PL reports terminal results or blockers to the Orchestrator; architectural decisions go to CGPT and product decisions to Matt. |
+| Escalation | Specialist findings return to the PL; the PL reports terminal results or blockers to the Orchestrator; architectural decisions go to the Architect and product decisions to Matt. |
 | Completion | Final status, evidence/PR links, exact reviewed candidate identity, unresolved risks and next approval. |
 
 Issue comments record status and evidence; they do not change direction or WO scope. A blocked Issue does not authorise invented decisions. Need-to-know context narrows down the hierarchy, but independent reviewers retain access to the authoritative requirements and standards they must assess.
@@ -47,7 +47,7 @@ Updates are concise and event-driven. A ten-minute Architect inspection interval
 
 ## Engineering delivery and Git authority
 
-The Orchestrator dispatches each approved WO to a PL. **One WO is one bounded ForgeV2 delivery cycle.** Before specialist dispatch, the PL verifies the project identity, application worktree and protected engine boundary required by the [Work Order contract](../standards/work-order-contract.md). The PL owns that WO's decomposition, specialist dispatch and coordination, reconciliation, tests, evidence, branch/worktree and Git/GitHub operations, and delivery verdict. It may commit/push only within its WO's authorised repository and branch boundary. It returns delivery evidence and any escalation through the Orchestrator to CGPT for architectural acceptance.
+The Orchestrator dispatches each approved WO to a PL. **One WO is one bounded ForgeV2 delivery cycle.** Before specialist dispatch, the PL verifies the project identity, application worktree and protected engine boundary required by the [Work Order contract](../standards/work-order-contract.md). The PL owns that WO's decomposition, specialist dispatch and coordination, reconciliation, tests, evidence, branch/worktree and Git/GitHub operations, and delivery verdict. It may commit/push only within its WO's authorised repository and branch boundary. It returns delivery evidence and any escalation through the Orchestrator to the Architect for architectural acceptance.
 
 Before launching the PL, the Orchestrator must pass the approved project's explicit development `host:/absolute/path`, canonical checkout, and worktree parent. An Orchestrator running on Trinity may control a WO for another host, but it must prove the execution route to that host; silently creating a Trinity checkout or writing within `/srv/forgev2` or `/srv/foundry` is prohibited. A missing route is BLOCKED. Engine/framework updates are separate assignments, never side effects of an application WO.
 
@@ -57,4 +57,4 @@ Forge specialist execution is bounded independently per agent per WO: at most fo
 
 Multiple PLs working on different projects follows ForgeV1's hub model. Concurrent PLs within one project are not proven safe; require independent project-correct worktrees and branches plus explicit coordination. Worktrees alone do not guarantee isolation or eliminate shared-service conflicts.
 
-Forge verification is not CGPT architectural acceptance or Matt product acceptance. A PL's delivery verdict cannot approve scope changes, dependencies, security exceptions or product risk beyond delegated authority. The Orchestrator returns evidence; CGPT accepts architecture and Matt retains product acceptance and material risk authority. No merge or scope expansion is implied.
+Forge verification is not the Architect's architectural acceptance or Matt product acceptance. A PL's delivery verdict cannot approve scope changes, dependencies, security exceptions or product risk beyond delegated authority. The Orchestrator returns evidence; the Architect accepts architecture and Matt retains product acceptance and material risk authority. No merge or scope expansion is implied.

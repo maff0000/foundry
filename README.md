@@ -11,7 +11,7 @@ It exists to preserve product direction and architectural coherence, support Agi
 ## People, roles and tooling
 
 - **Matt Scott — Product Owner (PO):** owns product vision, objectives, intended value, direction, priorities, scope decisions and final product acceptance.
-- **ChatGPT (CGPT) — Project Architect:** leads discovery, contributes research and expertise, stewards architecture through delivery and determines architectural acceptance.
+- **Project Architect:** a portable role, held for each project by the AI agent Matt appoints. Leads discovery, contributes research and expertise, stewards architecture through delivery and determines architectural acceptance.
 - **Orchestrator:** portable role that assigns bounded project initiation and approved WOs to Project Leads, aggregates progress and escalations, and reports to the Architect. **Rogue** is Matt's personal implementation of this role.
 - **Project Lead (PL):** authorised engineering delivery controller for an individual WO; coordinates specialist agents and owns that WO's Git operations within its approved boundary.
 - **FORGE and ANVIL:** Claude Code-based and Codex-based implementation tooling respectively. They do not own product direction or architecture; their detailed integration remains deferred.
@@ -40,7 +40,7 @@ Read in this order:
 
 A fresh session receiving “You are the Project Architect. Align yourself to FOUNDRY” should use this reading to understand responsibilities, authority, established processes, standards, conventions and deferred design. It should independently determine the sensible next activity from context, including when clarification or escalation is necessary. There is no mandatory conversational script. If project context is missing, the Architect may establish whether Matt wants to initiate a new product or review an existing one; ask only when the route is genuinely unclear.
 
-**Required new-project communication intake for CGPT:** On each new project, the Architect checks that Rogue has performed project commissioning **including a project-specific CGPT ↔ Rogue gateway route and its tested capability**. The Architect independently verifies repo/host/engine/PL permissions, unique Rogue ownership, direct messaging evidence and the difference between manual GitHub exchange and unattended pickup before treating supervision-dependent work as ready. Follow the [Architect intake instruction in AGENTS.md](AGENTS.md#architect-new-project-intake-direct-cgpt-communications) and [Rogue ROGUE.md §A3](ROGUE.md#a3-new-project-commissioning--mandatory-rogue-responsibility-including-cgpt-communications). **A new project registers with one shared Gateway, not an additional service or timer for that project.**
+**Required new-project communication intake for the Architect:** On each new project, the Architect checks that Rogue has performed project commissioning **including a project-specific Architect ↔ Rogue gateway route and its tested capability**. The Architect independently verifies repo/host/engine/PL permissions, unique Rogue ownership, direct messaging evidence and the difference between manual GitHub exchange and unattended pickup before treating supervision-dependent work as ready. Follow the [Architect intake instruction in AGENTS.md](AGENTS.md#architect-new-project-intake-direct-architect-communications) and [Rogue ROGUE.md §A3](ROGUE.md#a3-new-project-commissioning--mandatory-rogue-responsibility-including-architect-communications). **A new project registers with one shared Gateway, not an additional service or timer for that project.**
 
 A fresh session should establish which role it is acting in, which project is being discussed, what is approved, and what authority exists for the requested work. Reading FOUNDRY does not itself authorise edits or implementation. Identify material uncertainty rather than filling missing processes with assumptions.
 
@@ -48,7 +48,7 @@ A fresh session should establish which role it is acting in, which project is be
 
 FOUNDRY contains framework governance, reusable processes, standards and framework decisions. Each product has its own GitHub repository holding its authoritative Product Vision, Product Backlog and, as applicable, architectural decisions, implementation plans, Work Orders, delivery logs, test and audit evidence, and implementation history.
 
-The Architect generates each project's README, Product Vision and Product Backlog from actual evidence and agreed direction, following the product record standard. The project also maintains the external software register required by the secure engineering standard. Blank forms and placeholder-based document templates are not used. Do not duplicate FOUNDRY's governance documents into product repositories. Active product backlogs and outstanding product decisions do not belong in FOUNDRY. Matt and CGPT deliberately evolve the framework; projects evolve independently under it.
+The Architect generates each project's README, Product Vision and Product Backlog from actual evidence and agreed direction, following the product record standard. The project also maintains the external software register required by the secure engineering standard. Blank forms and placeholder-based document templates are not used. Do not duplicate FOUNDRY's governance documents into product repositories. Active product backlogs and outstanding product decisions do not belong in FOUNDRY. Matt and the Architect deliberately evolve the framework; projects evolve independently under it.
 
 ## Current scope
 
@@ -64,4 +64,4 @@ Agreed downstream principles are recorded in [DECISIONS.md](DECISIONS.md), but l
 
 ## Continuous improvement
 
-FOUNDRY is a living framework. Delivery experience, security research, engineering discoveries, Agile practice improvements, agent performance observations, recurring failures and new technological capabilities may reveal improvements. Agents may propose changes, but proposals do not become policy automatically. Deliberate Matt/CGPT agreement and traceable Git history preserve improvements for future Architects.
+FOUNDRY is a living framework. Delivery experience, security research, engineering discoveries, Agile practice improvements, agent performance observations, recurring failures and new technological capabilities may reveal improvements. Agents may propose changes, but proposals do not become policy automatically. Deliberate Matt/Architect agreement and traceable Git history preserve improvements for future Architects.
