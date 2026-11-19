@@ -86,6 +86,15 @@ Amendment 004 establishes minimum Work Order content, approval provenance and pr
 
 FND-031 supersedes the deferral of any project-specific infrastructure standard only to the extent described: relative topology and discovery rules are defined; actual host/root, absolute paths, and environment-specific requirements remain project decisions. The optional [FORGE v2 target](references/forge-v2-target.md) is not mandatory fresh-Architect reading and does not establish runtime truth.
 
+## Amendment 006 — portable Architect role and development-host delivery identity
+
+Matt's decisions of 2026-11-19. Earlier rows are unchanged and remain the record of what was agreed at the time.
+
+| ID | Decision |
+| --- | --- |
+| FND-046 | The Project Architect is a portable role, like the Orchestrator. Matt appoints the AI agent that holds it for each project; FOUNDRY no longer names a product or model. This supersedes FND-005 to that extent. References to CGPT in earlier rows of this register, in Git history and in existing project records denote the Architect role as held at the time. Rogue's reporting status `READY_FOR_CGPT` is renamed `READY_FOR_ARCHITECT`; existing records using the earlier name mean the same state. |
+| FND-047 | On a host Matt designates as a development host, the Orchestrator and the ForgeV2 PL may run under one existing account, including root. A dedicated, locked, no-login PL account is not required there; ForgeV2's root override is the sanctioned mechanism and is recorded in the WO ledger. Unchanged: one fresh PL per WO, PL-only Git through the engine's tools, sandboxed specialists, the four-execution limit, engine/application separation and engine immutability. On such a host the specialists' sandbox is the only boundary between a WO and whatever the shared account can read. Identity separation is reviewed with Matt before any production host is used. Host designation is a per-host fact recorded in the project's PIM, not a FOUNDRY default. |
+
 ## Deferred framework design
 
 The following are intentionally undecided mechanisms, not permission to invent defaults:

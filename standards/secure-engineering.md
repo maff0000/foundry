@@ -22,7 +22,7 @@ Each application owns its code and reusable assets. Cross-project source-directo
 
 Approved third-party software is permitted only with identifiable provenance, an exact version or hash identifying the incorporated code, suitable licensing, vulnerability and supply-chain assessment, awareness of transitive dependencies, and required architectural/security approval under project governance.
 
-Assess components before trusting or executing them, including during installation and builds. Review evidence relevant to origin, integrity, intended use and execution privileges; a scan result alone does not establish safety. New dependencies and exceptions require CGPT's approval within project governance, with material risk beyond architectural authority escalated to Matt under [Governance](../GOVERNANCE.md#security-and-engineering-authority). Implementers cannot approve their own scope expansion.
+Assess components before trusting or executing them, including during installation and builds. Review evidence relevant to origin, integrity, intended use and execution privileges; a scan result alone does not establish safety. New dependencies and exceptions require the Architect's approval within project governance, with material risk beyond architectural authority escalated to Matt under [Governance](../GOVERNANCE.md#security-and-engineering-authority). Implementers cannot approve their own scope expansion.
 
 Applications execute approved dependencies locally within controlled builds and deployments. Runtime loading, downloading or execution of externally hosted code, including CDN-hosted JavaScript, is prohibited without an explicit approved exception. Legitimate data-service/API integrations are distinct from remotely obtained executable code: assess their trust boundaries, sensitive data, access and other security risks separately. Network egress should follow project security policy. These requirements do not define build, deployment or egress enforcement machinery.
 
@@ -42,7 +42,7 @@ During both NEW discovery and EXISTING reconciliation, the Project Architect MUS
 
 For NEW products, distinguish proposed dependencies and execution assumptions from incorporated code and approvals actually granted. For EXISTING products, reconcile claims against implementation and operational evidence without executing unassessed components merely to discover their behaviour. Use the Stage 1 evidence classifications and report inspection gaps honestly.
 
-Before [Stage 1](../stages/01-product-discovery.md) closes, establish the external software register and truthfully describe its coverage. Incomplete inspection is not proof of safety: CGPT assesses whether uncertainty blocks responsible product-direction approval, escalating product risk acceptance as required. Do not invent complete coverage as a condition for filling a record. All existing Stage 1 review and approval gates continue to apply.
+Before [Stage 1](../stages/01-product-discovery.md) closes, establish the external software register and truthfully describe its coverage. Incomplete inspection is not proof of safety: the Architect assesses whether uncertainty blocks responsible product-direction approval, escalating product risk acceptance as required. Do not invent complete coverage as a condition for filling a record. All existing Stage 1 review and approval gates continue to apply.
 
 ## Evidence and boundaries
 

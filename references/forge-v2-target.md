@@ -25,7 +25,7 @@ The following six role definitions are proposed files for a future ForgeV2 desig
 | `forge-tester` | Independently assess behavior, regression and actual user/browser behavior where relevant | No authoritative code edits or Git/GitHub mutation |
 | `forge-devsecops` | Independently assess security, dependencies/provenance, secrets and trust boundaries | No code edits or Git/GitHub mutation |
 
-The hierarchy is Matt + CGPT Architect → Orchestrator (Rogue implementation) → PL → specialists. Agents receive task-specific minimum sufficient context. Independent reviewers can inspect the authoritative WO and standards without inheriting Engineer reasoning as established fact.
+The hierarchy is Matt + Architect → Orchestrator (Rogue implementation) → PL → specialists. Agents receive task-specific minimum sufficient context. Independent reviewers can inspect the authoritative WO and standards without inheriting Engineer reasoning as established fact.
 
 ## Proposed per-WO delivery loop
 
@@ -33,7 +33,7 @@ The hierarchy is Matt + CGPT Architect → Orchestrator (Rogue implementation) �
 2. PL confirms the exact project baseline and isolated, project-correct worktree/branch before dispatch. PL owns Git operations within that WO.
 3. PL dispatches the proposed specialist sequence: Engineer → Auditor → Tester → DevSecOps. Each reviewer returns PASS or FAIL with reason and evidence; an environmental inability to verify is not PASS.
 4. On reviewer FAIL, findings return to Engineer. Engineer alone chooses bounded correction or escalation to the PL. Engineer changes invalidate previous PASS results and require the assurance chain to restart on the new candidate. All final PASS results identify the same unchanged candidate.
-5. PL integrates/tests and returns final delivery evidence or terminal escalation to the Orchestrator, which aggregates status and returns it to CGPT. CGPT performs architectural acceptance; Matt retains product acceptance and material risk authority.
+5. PL integrates/tests and returns final delivery evidence or terminal escalation to the Orchestrator, which aggregates status and returns it to the Architect. The Architect performs architectural acceptance; Matt retains product acceptance and material risk authority.
 
 ### Execution bound and state ownership
 
